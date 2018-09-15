@@ -1,4 +1,16 @@
-extends "res://Scenes/Characters/BaseNPC/NPC.gd"
+extends KinematicBody2D
+
+signal health_changed
+signal dead #for death status and death animations
+signal knocked_down #knock down status and animation
+
+
+
+
+export (PackedScene) var Bullet # for Thrown Obejcts
+export (int) var speed 
+export (float) var rotation_speed #for character rotation 
+
 
 # class member variables go here, for example:
 # var a = 2

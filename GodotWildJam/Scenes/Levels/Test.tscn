@@ -56,5 +56,8 @@ __meta__ = {
 [node name="KinematicBody2D" parent="." index="1" instance=ExtResource( 2 )]
 
 position = Vector2( 49.5765, 510.744 )
+Bullet = null
+speed = null
+rotation_speed = null
 
 
