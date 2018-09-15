@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Art/Characters and Animations/Test/Test_Player.png" type="Texture" id=1]
+
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671, 22.2529, 1.24284, 18.749, -1.96904, 14.9532, -11.0207, 9.4054, -19.1964, 4.5256, -43.8544, -4.2955, -47.5298, -14.5868, -40.914, -24.143, -15.9208, -27.0834, 14.953, -16.057, 41.4164, -16.057, 44.3567, -8.70605, 51.7077 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+blend_times = [  ]
+
+[node name="Tween" type="Tween" parent="AnimationPlayer" index="0"]
+
+repeat = false
+playback_process_mode = 1
+playback_speed = 1.0
+playback/active = false
+playback/repeat = false
+playback/speed = 1.0
+
+[node name="Test_Player" type="Sprite" parent="." index="2"]
+
+position = Vector2( -1.66597, 1.73757 )
+texture = ExtResource( 1 )
+
+

@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Art/Characters and Animations/Test/Test_Player.png" type="Texture" id=2]
+
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 4.99388, 50.6591, 8.03939, 23.3072, 14.0444, 13.8153, 15.9816, 6.06686, 21.0181, 3.3549, 15.9816, -0.131912, 8.03939, -13.1106, 3.80223, -40.7003, -6.92256, -45.0696, -16.0585, -35.9337, -26.3861, -8.92312, -27.5777, 16.4986, -18.4418, 42.7148, -17.2501, 49.4674, -9.30585, 53.4396 )
+
+[node name="Test_Player" type="Sprite" parent="CollisionPolygon2D" index="0"]
+
+position = Vector2( -2.54399, 3.90391 )
+texture = ExtResource( 2 )
+
+
