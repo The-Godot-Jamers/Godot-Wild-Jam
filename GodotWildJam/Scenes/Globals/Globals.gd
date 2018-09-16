@@ -10,7 +10,6 @@ var colors = ["#472D3C","#5E3643","#7A444A","#A05B53","#BF7958","#EEA160","#FFFD
 
 func riot_lvl_set(lvl):
 	riot_lvl = lvl
-	print("update")
 	UI.riot_lvl_update(riot_lvl)
 
 func police_lvl_set(lvl):
