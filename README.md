@@ -1,2 +1,2 @@
-# Godot-Wild-Jam
-Game for the Godot Wild Jam
+# Godot-Wild-Jam -Evolution of riot
+Game for the Godot Wild Jam -Evolution of riot
