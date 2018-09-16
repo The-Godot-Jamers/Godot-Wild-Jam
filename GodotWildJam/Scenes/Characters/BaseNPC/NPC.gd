@@ -9,7 +9,6 @@ var hot_headedness = 0  #How likely to start acting violent
 var care_about_issue = 50 #How much do they care about this particular issue
 var police_interest = 0 #how much do you annoy the police
 
-
 export (PackedScene) var Bullet # for Thrown Obejcts
 export (int) var speed 
 export (float) var rotation_speed #for character rotation
@@ -20,29 +19,20 @@ var can_throw = true
 var alive = true #Death animation
 var knocked_down = false #Knocked down animation
 
-# class member variables go here, for example:
-# var a = 2
-# var b = "textvar"
-
 func _ready():
-
+	#maybe some general variations and stuff
 	pass
 
 func control(delta):
-	
+	#move_and_slide etc.
 	pass
 
 func _physics_process(delta):
 	if not alive:
 		return
-#	control(delta)
 	move_and_slide(velocity)
 	if knocked_down:
 		return
 	control(delta)
-#	move_and_slide(velocity)
-	 
-	
-#	# Called every frame. Delta is time since last frame.
-#	# Update game logic here.
-#pass
+
+
