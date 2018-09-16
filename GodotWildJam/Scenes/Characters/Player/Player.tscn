@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=2]
 [ext_resource path="res://Art/Characters and Animations/Test/Walk2.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=4]
 [ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -14,15 +15,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "walk",
-"speed": 4.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -47,14 +48,12 @@ polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671
 [node name="Head" type="Sprite" parent="." index="1"]
 
 rotation = 0.00203246
-scale = Vector2( 1, 1 )
 texture = ExtResource( 2 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 
 [node name="Body" type="AnimatedSprite" parent="Head" index="0"]
 
 rotation = -0.00203246
-scale = Vector2( 1, 1 )
 z_index = -1
 frames = SubResource( 1 )
 animation = "idle"
@@ -64,6 +63,7 @@ _sections_unfolded = [ "Z Index" ]
 [node name="Look_at" type="Position2D" parent="Head/Body" index="0"]
 
 rotation = 0.00203246
-scale = Vector2( 1, 1 )
+
+[node name="PlayerCamera" parent="." index="2" instance=ExtResource( 6 )]
 
 
