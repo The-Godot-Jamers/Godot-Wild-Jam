@@ -8,7 +8,9 @@ flags = 0
 _data = [ Vector2( 0, 0 ) ]
 
 [node name="SplatterTexture" type="Sprite"]
+
 texture = SubResource( 1 )
 script = ExtResource( 1 )
 size = Vector2( 1024, 600 )
+
 

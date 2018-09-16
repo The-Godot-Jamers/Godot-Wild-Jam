@@ -11,12 +11,13 @@ config_version=3
 [application]
 
 config/name="GodotWildJam"
-run/main_scene="res://Scenes/Levels/Test.tscn"
+run/main_scene="res://Scenes/splash_screen/splash_screen.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 Globals="*res://Scenes/Globals/Globals.tscn"
+UI="*res://Scenes/UI/UI.tscn"
 
 [display]
 
