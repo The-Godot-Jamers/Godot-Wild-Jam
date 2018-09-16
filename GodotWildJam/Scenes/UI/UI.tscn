@@ -6,7 +6,7 @@
 [ext_resource path="res://Art/UI/molotov_icon.png" type="Texture" id=4]
 [ext_resource path="res://Art/UI/riot_shield_icon.png" type="Texture" id=5]
 
-[node name="UI" type="ViewportContainer"]
+[node name="UI" type="ViewportContainer" index="0"]
 
 pause_mode = 2
 anchor_left = 0.0

@@ -6,27 +6,28 @@ func control(delta):
 	#$Player/AnimatedSprite.play("walk")
 	$Head.look_at(get_global_mouse_position())
 	$Body.look_at(get_global_mouse_position())
-	var m_speed = speed*10
+	var m_speed = speed * 10
 
 	if Input.is_action_pressed('Right'):
-		velocity = Vector2(m_speed,0)
+		velocity = Vector2(m_speed, 0)
 	if Input.is_action_pressed('Left'):
-		velocity = Vector2(-m_speed,0)
+		velocity = Vector2(-m_speed, 0)
 	if Input.is_action_pressed('Up'):
-		velocity = Vector2(0,m_speed)
+		velocity = Vector2(0, m_speed)
 	if Input.is_action_pressed('Down'):
-		velocity = Vector2(0,-m_speed) 
-	if velocity ==  Vector2(0,0): 
+		velocity = Vector2(0, -m_speed) 
+	if velocity ==  Vector2(0, 0): 
 		$Body.play("idle")
 	else:
-		move_and_slide (velocity,Vector2(0,0))
+		move_and_slide (velocity,Vector2(0, 0))
 		$Body.play("walk")
-	velocity = Vector2(0,0)
+	velocity = Vector2(0, 0)
 
 func _input(event):
 	
 	if Input.is_action_just_pressed('ui_accept'):
-		
+		Globals.riot_lvl += 1
+		Globals.police_lvl += 1
 # var b = "textvar"
 
 #func _ready():
