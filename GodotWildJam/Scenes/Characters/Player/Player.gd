@@ -9,13 +9,13 @@ func control(delta):
 	var m_speed = speed * 10
 
 	if Input.is_action_pressed('Right'):
-		velocity = Vector2(m_speed, 0)
+		velocity += Vector2(m_speed, 0)
 	if Input.is_action_pressed('Left'):
-		velocity = Vector2(-m_speed, 0)
+		velocity += Vector2(-m_speed, 0)
 	if Input.is_action_pressed('Up'):
-		velocity = Vector2(0, m_speed)
+		velocity += Vector2(0, -m_speed)
 	if Input.is_action_pressed('Down'):
-		velocity = Vector2(0, -m_speed) 
+		velocity += Vector2(0, m_speed) 
 	if velocity ==  Vector2(0, 0): 
 		$Body.play("idle")
 	else:
