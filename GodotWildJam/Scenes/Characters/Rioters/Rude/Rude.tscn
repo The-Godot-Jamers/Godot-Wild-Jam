@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Art/Characters and Animations/Test/Walk2.png" type="Texture" id=1]
-[ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=2]
-[ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=3]
-[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk2.png" type="Texture" id=1]
+[ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk1.png" type="Texture" id=2]
+[ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk3.png" type="Texture" id=3]
+[ext_resource path="res://Art/Characters and Animations/Rude/RudeHead.png" type="Texture" id=4]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -13,15 +13,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk",
-"speed": 4.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -39,14 +39,23 @@ polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671
 
 [node name="AnimatedSprite_Body" type="AnimatedSprite" parent="." index="1"]
 
+rotation = -1.57065
+scale = Vector2( 0.13648, 0.144122 )
 frames = SubResource( 1 )
 animation = "walk"
+frame = 2
 playing = true
+_sections_unfolded = [ "Transform" ]
 
 [node name="Head" type="Sprite" parent="." index="2"]
 
+rotation = -1.5708
+scale = Vector2( 0.127022, 0.127022 )
 texture = ExtResource( 4 )
+_sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Look_at" type="Position2D" parent="Head" index="0"]
+
+position = Vector2( 634.179, -298.888 )
 
 
