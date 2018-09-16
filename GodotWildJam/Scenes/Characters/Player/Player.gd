@@ -18,7 +18,6 @@ func control(delta):
 		velocity=Vector2(-speed/2,0).rotated(rotation)  
 
 
-
 # class member variables go here, for example:
 # var a = 2
 # var b = "textvar"

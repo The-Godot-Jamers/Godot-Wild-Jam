@@ -1,14 +1,14 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://Art/Background Assets/Hep-hep_riots.png" type="Texture" id=1]
+[ext_resource path="res://Art/Background Assets/1280px-Queen_Square_Riot_1831_engraving.png" type="Texture" id=1]
 
-[node name="splash_screen" type="Node2D" index="0"]
+[node name="splash_screen" type="Node2D"]
 
 __meta__ = {
 "_edit_group_": true
 }
 
-[node name="Hep-hep_riots" type="TextureRect" parent="." index="0"]
+[node name="bg" type="TextureRect" parent="." index="0"]
 
 anchor_left = 0.0
 anchor_top = 0.0

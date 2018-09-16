@@ -4,7 +4,10 @@ signal health_changed
 signal dead #for death status and death animations
 signal knocked_down #knock down status and animation
 
-
+#baselines for everyone unless chanced.
+var hot_headedness = 0  #How likely to start acting violent
+var care_about_issue = 50 #How much do they care about this particular issue
+var police_interest = 0 #how much do you annoy the police
 
 
 export (PackedScene) var Bullet # for Thrown Obejcts
