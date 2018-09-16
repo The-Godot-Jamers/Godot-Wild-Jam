@@ -15,15 +15,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk",
 "speed": 4.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "run",
+"speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -36,9 +36,9 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 Bullet = null
-speed = 50
-rotation_speed = 10.0
-health = 100
+speed = null
+rotation_speed = null
+health = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 

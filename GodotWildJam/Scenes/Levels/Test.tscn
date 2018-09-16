@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 251.857, 169.319 )
 
-[node name="Node" type="Node2D" index="0"]
+[node name="Node" type="Node2D"]
 
 [node name="TestLevel" type="Sprite" parent="." index="0"]
 
@@ -53,5 +53,8 @@ shape = SubResource( 1 )
 [node name="Player" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 72.2729, 530.261 )
+speed = null
+rotation_speed = null
+health = null
 
 
