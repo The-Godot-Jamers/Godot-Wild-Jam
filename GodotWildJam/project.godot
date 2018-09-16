@@ -11,7 +11,12 @@ config_version=3
 [application]
 
 config/name="GodotWildJam"
+run/main_scene="res://color_test.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Globals="*res://Scenes/Globals/Globals.tscn"
 
 [rendering]
 
