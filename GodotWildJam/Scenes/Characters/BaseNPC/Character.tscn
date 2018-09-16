@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Art/Characters and Animations/Test/Walk2.png" type="Texture" id=1]
+[ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=2]
+[ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=3]
+[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=4]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[node name="KinematicBody2D" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671, 22.2529, 1.24284, 18.749, -1.96904, 14.9532, -11.0207, 9.4054, -19.1964, 4.5256, -43.8544, -4.2955, -47.5298, -14.5868, -40.914, -24.143, -15.9208, -27.0834, 14.953, -16.057, 41.4164, -16.057, 44.3567, -8.70605, 51.7077 )
+
+[node name="AnimatedSprite_Body" type="AnimatedSprite" parent="." index="1"]
+
+frames = SubResource( 1 )
+animation = "walk"
+playing = true
+
+[node name="Head" type="Sprite" parent="." index="2"]
+
+texture = ExtResource( 4 )
+
+[node name="Look_at" type="Position2D" parent="Head" index="0"]
+
+

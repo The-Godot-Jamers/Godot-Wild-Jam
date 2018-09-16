@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
+[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=2]
+[ext_resource path="res://Art/Characters and Animations/Test/Walk2.png" type="Texture" id=3]
+[ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=5]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[node name="Player" type="KinematicBody2D" index="0"]
+
+rotation = 0.000822698
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+Bullet = null
+speed = 50
+rotation_speed = 10.0
+health = 100
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671, 22.2529, 1.24284, 18.749, -1.96904, 14.9532, -11.0207, 9.4054, -19.1964, 4.5256, -43.8544, -4.2955, -47.5298, -14.5868, -40.914, -24.143, -15.9208, -27.0834, 14.953, -16.057, 41.4164, -16.057, 44.3567, -8.70605, 51.7077 )
+
+[node name="Head" type="Sprite" parent="." index="1"]
+
+rotation = 0.00203246
+scale = Vector2( 1, 1 )
+texture = ExtResource( 2 )
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+
+[node name="Body" type="AnimatedSprite" parent="Head" index="0"]
+
+rotation = -0.00203246
+scale = Vector2( 1, 1 )
+z_index = -1
+frames = SubResource( 1 )
+animation = "idle"
+playing = true
+_sections_unfolded = [ "Z Index" ]
+
+[node name="Look_at" type="Position2D" parent="Head/Body" index="0"]
+
+rotation = 0.00203246
+scale = Vector2( 1, 1 )
+
+
