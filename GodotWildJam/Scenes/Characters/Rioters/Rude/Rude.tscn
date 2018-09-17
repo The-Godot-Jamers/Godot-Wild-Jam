@@ -1,27 +1,28 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk2.png" type="Texture" id=1]
-[ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk1.png" type="Texture" id=2]
-[ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk3.png" type="Texture" id=3]
-[ext_resource path="res://Art/Characters and Animations/Rude/RudeHead.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Characters/Rioters/Rioters.gd" type="Script" id=1]
+[ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk2.png" type="Texture" id=2]
+[ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk1.png" type="Texture" id=3]
+[ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk3.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/Rude/RudeHead.png" type="Texture" id=5]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
+"frames": [ ExtResource( 2 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
 }, {
 "frames": [  ],
 "loop": true,
 "name": "run",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 2 ), ExtResource( 1 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "walk",
-"speed": 4.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -31,6 +32,11 @@ input_pickable = false
 collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
+script = ExtResource( 1 )
+Bullet = null
+speed = 50
+rotation_speed = null
+health = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
@@ -42,8 +48,7 @@ polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671
 rotation = -1.57065
 scale = Vector2( 0.13648, 0.144122 )
 frames = SubResource( 1 )
-animation = "walk"
-frame = 2
+animation = "idle"
 playing = true
 _sections_unfolded = [ "Transform" ]
 
@@ -51,11 +56,18 @@ _sections_unfolded = [ "Transform" ]
 
 rotation = -1.5708
 scale = Vector2( 0.127022, 0.127022 )
-texture = ExtResource( 4 )
+texture = ExtResource( 5 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="Look_at" type="Position2D" parent="Head" index="0"]
 
 position = Vector2( 634.179, -298.888 )
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 1.0
+one_shot = true
+autostart = true
 
 

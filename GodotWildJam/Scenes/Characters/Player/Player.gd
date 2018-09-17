@@ -53,9 +53,6 @@ func control(delta):
 		$Body.play("walk")
 	velocity = Vector2(0, 0)
 
-func _input(event):
-	if Input.is_action_just_pressed('ui_accept'):
-		Globals.riot_lvl += 1
-		Globals.police_lvl += 1
+
 
 
