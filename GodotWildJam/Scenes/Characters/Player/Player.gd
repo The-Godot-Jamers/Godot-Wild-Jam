@@ -10,7 +10,7 @@ var care_about_issue = 50 #How much do they care about this particular issue
 var police_interest = 0 #how much do you annoy the police
 
 export (PackedScene) var Bullet # for Thrown Obejcts
-export (int) var speed 
+export (int) var speed = 10
 export (float) var rotation_speed #for character rotation
 export (int) var health
 

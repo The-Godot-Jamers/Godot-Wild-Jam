@@ -53,7 +53,7 @@ shape = SubResource( 1 )
 [node name="Player" parent="." index="2" instance=ExtResource( 2 )]
 
 position = Vector2( 72.2729, 530.261 )
-speed = null
+speed = 10
 rotation_speed = null
 health = null
 
