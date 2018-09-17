@@ -72,7 +72,7 @@ func control(delta):
 			var pickups = get_tree().get_nodes_in_group("THROW")
 			for i in pickups:
 				if i.player_in_area && i.pickable:
-					UI.invetory_add(i.get_tex(),inventory.size())
+					UI.inventory_add(i.get_tex(),inventory.size())
 					inventory.append(i)
 					i.hide()
 					i.pickable = false
@@ -88,6 +88,8 @@ func control(delta):
 			inst.show()
 			print("inv_removed ", UI.inventory_selected)
 			inventory.remove(UI.inventory_selected)
-			UI.inventory_remove(UI.inventory_selected)
+			#UI.inventory_remove(UI.inventory_selected)
 			print("inv ", inventory)
+			inst.pickable = true
+			UI.inventory_resuffle(inventory)
 
