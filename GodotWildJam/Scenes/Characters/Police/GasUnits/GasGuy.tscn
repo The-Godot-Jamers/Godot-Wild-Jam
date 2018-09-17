@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=2]
 
-[ext_resource path="res://Scenes/Characters/BaseNPC/NPC.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Characters/Police/GasUnits/GasGuy.gd" type="Script" id=1]
 [ext_resource path="res://Art/Characters and Animations/Cops_GasGuy/GasGuyBody1.png" type="Texture" id=2]
 [ext_resource path="res://Art/Characters and Animations/Cops_GasGuy/GasGuyBody2.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/Cops_GasGuy/GasGuyHead.png" type="Texture" id=4]
@@ -21,7 +21,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -35,6 +35,7 @@ health = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
+position = Vector2( 0, 2.38419e-007 )
 build_mode = 0
 polygon = PoolVector2Array( 36.562, 32.1888, 46.8896, 27.4222, 50.8617, 15.903, 90.1859, 2.39773, 96.1442, -11.5048, 124.744, -13.0936, 123.949, -30.5711, 5.97652, -33.7488, 1.20995, -39.707, -40.8948, -40.8986, -54.4001, -38.1181, -63.536, -20.2435, -36.5254, 19.4779, -10.7065, 34.5721, 20.2762, 36.5582 )
 

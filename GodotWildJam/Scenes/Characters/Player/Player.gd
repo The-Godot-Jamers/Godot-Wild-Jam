@@ -19,11 +19,22 @@ var can_throw = true
 var alive = true #Death animation
 var knocked_down = false #Knocked down animation
 
+var inventory = []
+
+
+
 func _ready():
 	#player setup
 	pass
 
 func _physics_process(delta):
+	#1-3 change to 0-2 because computer language
+	if Input.is_action_just_pressed("1"):
+		UI.inventory_select(0)
+	if Input.is_action_just_pressed("2"):
+		UI.inventory_select(1)
+	if Input.is_action_just_pressed("3"):
+		UI.inventory_select(2)
 	if not alive:
 		return
 	move_and_slide(velocity)
@@ -54,6 +65,29 @@ func control(delta):
 	velocity = Vector2(0, 0)
 	if Input.is_action_just_pressed("Interact"):
 		$talk.talk(self)
-
-
+	if Input.is_action_just_pressed("Interact2"):
+		$talk.yell(self)
+	if Input.is_action_just_pressed("pickup"):
+		if (inventory.size()) < 3:
+			var pickups = get_tree().get_nodes_in_group("THROW")
+			for i in pickups:
+				if i.player_in_area && i.pickable:
+					UI.invetory_add(i.get_tex(),inventory.size())
+					inventory.append(i)
+					i.hide()
+					i.pickable = false
+					print("inventory ", inventory)
+					
+	
+	if Input.is_action_just_pressed("attack_push_throw"):
+		print("inventory ", inventory)
+		if UI.inventory_selected > -1 && UI.inventory_selected < inventory.size():
+			print("UI.inv_sel ", UI.inventory_selected)
+			var inst = inventory[UI.inventory_selected]
+			inst.position = position
+			inst.show()
+			print("inv_removed ", UI.inventory_selected)
+			inventory.remove(UI.inventory_selected)
+			UI.inventory_remove(UI.inventory_selected)
+			print("inv ", inventory)
 

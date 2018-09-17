@@ -23,6 +23,9 @@ var move_distance = 0
 var direction = Vector2()
 
 func _ready():
+	$AnimatedSprite_Body.modulate = Globals.human_colors[randi() % Globals.human_colors.size()]
+	$Head.modulate = Globals.human_colors[randi() % Globals.human_colors.size()]
+	add_to_group("NPC")
 	care_about_issue += rand_range(-10,10)
 	#maybe some general variations and stuff
 	$Timer.wait_time += rand_range(-0.2, 0.2)
@@ -30,7 +33,11 @@ func _ready():
 
 func do_something():
 	if rand_range(0,100) < care_about_issue / 10:
-		$talk.talk(self)
+		if care_about_issue > 70 && hot_headedness > 50 && rand_range(0,100) > 50:
+			$talk.yell(self)
+		else:
+			$talk.talk(self)
+		return
 	direction = Vector2(rand_range(-1,1), rand_range(-1,1))
 	move_distance = rand_range(10,50)
 

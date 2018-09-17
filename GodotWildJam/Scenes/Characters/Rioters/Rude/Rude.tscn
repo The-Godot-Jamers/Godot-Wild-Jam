@@ -7,7 +7,7 @@
 [ext_resource path="res://Art/Characters and Animations/Rude/RudeHead.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=6]
 
-[sub_resource type="SpriteFrames" id=1]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -27,13 +27,14 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="Rude" type="KinematicBody2D"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 2
+collision_mask = 11
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision", "Material", "Z Index" ]
 Bullet = null
 speed = 50
 rotation_speed = null
@@ -46,19 +47,21 @@ polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671
 
 [node name="AnimatedSprite_Body" type="AnimatedSprite" parent="." index="1"]
 
+use_parent_material = true
 rotation = -1.57065
 scale = Vector2( 0.13648, 0.144122 )
-frames = SubResource( 1 )
+frames = SubResource( 3 )
 animation = "idle"
 playing = true
-_sections_unfolded = [ "Transform" ]
+_sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 [node name="Head" type="Sprite" parent="." index="2"]
 
+use_parent_material = true
 rotation = -1.5708
 scale = Vector2( 0.127022, 0.127022 )
 texture = ExtResource( 5 )
-_sections_unfolded = [ "Transform", "Z Index" ]
+_sections_unfolded = [ "Material", "Transform", "Z Index" ]
 
 [node name="Look_at" type="Position2D" parent="Head" index="0"]
 
@@ -72,5 +75,7 @@ one_shot = true
 autostart = true
 
 [node name="talk" parent="." index="4" instance=ExtResource( 6 )]
+
+visible = false
 
 

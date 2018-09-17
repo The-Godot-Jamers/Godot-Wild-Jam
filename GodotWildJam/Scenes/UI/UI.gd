@@ -1,8 +1,14 @@
 extends ViewportContainer
 
+var inventory_selected = -1
+
 func _ready():
 	$canvas/Menu/Center/VBox/Start.connect("pressed", self, "start_pressed")
+	$canvas/Menu/Center/VBox/Resume.connect("pressed", self, "resume_pressed")
 	$canvas/Menu/Center/VBox/Quit.connect("pressed", self, "quit_pressed")
+	$canvas/Inventory/hbox/slot0.connect("pressed", self, "inventory_select",[0])
+	$canvas/Inventory/hbox/slot1.connect("pressed", self, "inventory_select",[1])
+	$canvas/Inventory/hbox/slot2.connect("pressed", self, "inventory_select",[2])
 
 func menu_toggle():
 	$canvas/Menu.visible = !$canvas/Menu.visible
@@ -21,11 +27,54 @@ func riot_lvl_update(lvl):
 
 func police_lvl_update(lvl):
 	for i in $canvas/Overall/Police_margin/hbox.get_child_count():
-		var riot_icon = $canvas/Overall/Police_margin/hbox.get_child(i)
+		var police_icon = $canvas/Overall/Police_margin/hbox.get_child(i)
 		if i+1 <= lvl:
-			riot_icon.show()
+			police_icon.show()
 		else:
-			riot_icon.hide()
+			police_icon.hide()
+
+func invetory_add(tex,slot):
+	if slot == 0:
+		$canvas/Inventory/hbox/slot0.texture_normal = tex
+		$canvas/Inventory/hbox/slot0/highlight.texture = tex
+		$canvas/Inventory/hbox/slot0.show()
+	if slot == 1:
+		$canvas/Inventory/hbox/slot1.texture_normal = tex
+		$canvas/Inventory/hbox/slot1/highlight.texture = tex
+		$canvas/Inventory/hbox/slot1.show()
+	if slot == 2:
+		$canvas/Inventory/hbox/slot2.texture_normal = tex
+		$canvas/Inventory/hbox/slot2/highlight.texture = tex
+		$canvas/Inventory/hbox/slot2.show()
+
+func inventory_remove(slot):
+	if slot == 0:
+		$canvas/Inventory/hbox/slot0.texture_normal = null
+		$canvas/Inventory/hbox/slot0/highlight.texture = null
+		$canvas/Inventory/hbox/slot2.hide()
+	if slot == 1:
+		$canvas/Inventory/hbox/slot1.texture_normal = null
+		$canvas/Inventory/hbox/slot1/highlight.texture = null
+		$canvas/Inventory/hbox/slot2.hide()
+	if slot == 2:
+		$canvas/Inventory/hbox/slot2.texture_normal = null
+		$canvas/Inventory/hbox/slot2/highlight.texture = null
+		$canvas/Inventory/hbox/slot2.hide()
+	inventory_selected = -1
+
+func inventory_select(slot):
+	$canvas/Inventory/hbox/slot0/highlight.hide()
+	$canvas/Inventory/hbox/slot1/highlight.hide()
+	$canvas/Inventory/hbox/slot2/highlight.hide()
+	if slot == 0:
+		inventory_selected = 0
+		$canvas/Inventory/hbox/slot0/highlight.show()
+	if slot == 1:
+		inventory_selected = 1
+		$canvas/Inventory/hbox/slot1/highlight.show()
+	if slot == 2:
+		inventory_selected = 2
+		$canvas/Inventory/hbox/slot2/highlight.show()
 
 func start_pressed():
 	$AudioStreamPlayer.play()
@@ -38,3 +87,12 @@ func start_pressed():
 
 func quit_pressed():
 	get_tree().quit()
+
+func resume_pressed():
+	get_tree().paused = false
+	menu_toggle()
+	
+	
+
+
+

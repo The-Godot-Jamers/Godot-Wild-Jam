@@ -8,13 +8,19 @@ var colors = ["#472D3C","#5E3643","#7A444A","#A05B53","#BF7958","#EEA160","#FFFD
 				"#DFF6F5","#8AEBF1","#00FAAC","#3978A8","#394778","#39314B","#564064","#302387",
 				"#FFAEB6","#F4B41B","#F47E1B","#E6482E","#A93B3B","#827094","#4F546B"]
 
+var human_colors = ["#472D3C","#5E3643","#7A444A","#A05B53","#BF7958","#EEA160","#FFFDAF"]
+var police_colors = ["#3978A8","#394778","#302387","#4F546B"]
+
+func _ready():
+	randomize()
+
 func riot_lvl_set(lvl):
 	riot_lvl = lvl
 	UI.riot_lvl_update(riot_lvl)
 
 func police_lvl_set(lvl):
 	police_lvl = lvl
-	UI.police_lvl_update(riot_lvl)
+	UI.police_lvl_update(police_lvl)
 
 func riot_get():
 	return riot_lvl

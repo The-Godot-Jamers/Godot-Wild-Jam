@@ -28,14 +28,17 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" groups=[
+"PLAYER",
+]]
 
 rotation = 0.000822698
 input_pickable = false
 collision_layer = 1
-collision_mask = 1
+collision_mask = 10
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 Bullet = null
 speed = 10
 rotation_speed = null
@@ -50,17 +53,13 @@ polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671
 
 position = Vector2( -8.79183, -16.5738 )
 rotation = -1.5708
-scale = Vector2( 1, 1 )
-_sections_unfolded = [ "Transform" ]
-talk_value = 5
+_sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Body" type="AnimatedSprite" parent="." index="2"]
 
 rotation = -5.82077e-011
-z_index = -1
 frames = SubResource( 1 )
 animation = "idle"
-playing = true
 _sections_unfolded = [ "Z Index" ]
 
 [node name="Look_at" type="Position2D" parent="Body" index="0"]
@@ -71,7 +70,7 @@ rotation = 0.00203246
 
 rotation = 0.00203246
 texture = ExtResource( 6 )
-_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
+_sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility" ]
 
 [node name="PlayerCamera" parent="." index="4" instance=ExtResource( 7 )]
 
