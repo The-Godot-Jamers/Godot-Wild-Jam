@@ -6,9 +6,9 @@ func _ready():
 	$canvas/Menu/Center/VBox/Start.connect("pressed", self, "start_pressed")
 	$canvas/Menu/Center/VBox/Resume.connect("pressed", self, "resume_pressed")
 	$canvas/Menu/Center/VBox/Quit.connect("pressed", self, "quit_pressed")
-	$canvas/Inventory/hbox/slot0.connect("pressed", self, "inventory_select",[0])
-	$canvas/Inventory/hbox/slot1.connect("pressed", self, "inventory_select",[1])
-	$canvas/Inventory/hbox/slot2.connect("pressed", self, "inventory_select",[2])
+	$canvas/Inventory/margin/hbox/slot0.connect("pressed", self, "inventory_select",[0])
+	$canvas/Inventory/margin/hbox/slot1.connect("pressed", self, "inventory_select",[1])
+	$canvas/Inventory/margin/hbox/slot2.connect("pressed", self, "inventory_select",[2])
 
 func menu_toggle():
 	$canvas/Menu.visible = !$canvas/Menu.visible
@@ -33,48 +33,58 @@ func police_lvl_update(lvl):
 		else:
 			police_icon.hide()
 
-func invetory_add(tex,slot):
+func inventory_add(tex,slot):
 	if slot == 0:
-		$canvas/Inventory/hbox/slot0.texture_normal = tex
-		$canvas/Inventory/hbox/slot0/highlight.texture = tex
-		$canvas/Inventory/hbox/slot0.show()
+		$canvas/Inventory/margin/hbox/slot0.texture_normal = tex
+		$canvas/Inventory/margin/hbox/slot0/highlight.texture = tex
+		$canvas/Inventory/margin/hbox/slot0.show()
 	if slot == 1:
-		$canvas/Inventory/hbox/slot1.texture_normal = tex
-		$canvas/Inventory/hbox/slot1/highlight.texture = tex
-		$canvas/Inventory/hbox/slot1.show()
+		$canvas/Inventory/margin/hbox/slot1.texture_normal = tex
+		$canvas/Inventory/margin/hbox/slot1/highlight.texture = tex
+		$canvas/Inventory/margin/hbox/slot1.show()
 	if slot == 2:
-		$canvas/Inventory/hbox/slot2.texture_normal = tex
-		$canvas/Inventory/hbox/slot2/highlight.texture = tex
-		$canvas/Inventory/hbox/slot2.show()
+		$canvas/Inventory/margin/hbox/slot2.texture_normal = tex
+		$canvas/Inventory/margin/hbox/slot2/highlight.texture = tex
+		$canvas/Inventory/margin/hbox/slot2.show()
+
+func inventory_resuffle(inventory):
+	for i in 3:
+		inventory_remove(i)
+	for i in inventory.size():
+		inventory_add(inventory[i].get_tex(), i)
+	$canvas/Inventory/margin/hbox/slot0/highlight.hide()
+	$canvas/Inventory/margin/hbox/slot1/highlight.hide()
+	$canvas/Inventory/margin/hbox/slot2/highlight.hide()
 
 func inventory_remove(slot):
 	if slot == 0:
-		$canvas/Inventory/hbox/slot0.texture_normal = null
-		$canvas/Inventory/hbox/slot0/highlight.texture = null
-		$canvas/Inventory/hbox/slot2.hide()
+		$canvas/Inventory/margin/hbox/slot0.texture_normal = null
+		$canvas/Inventory/margin/hbox/slot0/highlight.texture = null
+		#$canvas/Inventory/margin/hbox/slot0.hide()
 	if slot == 1:
-		$canvas/Inventory/hbox/slot1.texture_normal = null
-		$canvas/Inventory/hbox/slot1/highlight.texture = null
-		$canvas/Inventory/hbox/slot2.hide()
+		$canvas/Inventory/margin/hbox/slot1.texture_normal = null
+		$canvas/Inventory/margin/hbox/slot1/highlight.texture = null
+		#$canvas/Inventory/margin/hbox/slot1.hide()
 	if slot == 2:
-		$canvas/Inventory/hbox/slot2.texture_normal = null
-		$canvas/Inventory/hbox/slot2/highlight.texture = null
-		$canvas/Inventory/hbox/slot2.hide()
+		$canvas/Inventory/margin/hbox/slot2.texture_normal = null
+		$canvas/Inventory/margin/hbox/slot2/highlight.texture = null
+		#$canvas/Inventory/margin/hbox/slot2.hide()
 	inventory_selected = -1
 
 func inventory_select(slot):
-	$canvas/Inventory/hbox/slot0/highlight.hide()
-	$canvas/Inventory/hbox/slot1/highlight.hide()
-	$canvas/Inventory/hbox/slot2/highlight.hide()
+	$canvas/Inventory/margin/hbox/slot0/highlight.hide()
+	$canvas/Inventory/margin/hbox/slot1/highlight.hide()
+	$canvas/Inventory/margin/hbox/slot2/highlight.hide()
+
 	if slot == 0:
 		inventory_selected = 0
-		$canvas/Inventory/hbox/slot0/highlight.show()
+		$canvas/Inventory/margin/hbox/slot0/highlight.show()
 	if slot == 1:
 		inventory_selected = 1
-		$canvas/Inventory/hbox/slot1/highlight.show()
+		$canvas/Inventory/margin/hbox/slot1/highlight.show()
 	if slot == 2:
 		inventory_selected = 2
-		$canvas/Inventory/hbox/slot2/highlight.show()
+		$canvas/Inventory/margin/hbox/slot2/highlight.show()
 
 func start_pressed():
 	$AudioStreamPlayer.play()
