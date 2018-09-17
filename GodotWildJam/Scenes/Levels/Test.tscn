@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Art/Background Assets/TestLevel.png" type="Texture" id=1]
 [ext_resource path="res://Scenes/Characters/Player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Characters/Rioters/Rude/Rude.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Characters/Police/GasUnits/GasGuy.tscn" type="PackedScene" id=4]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -58,5 +59,9 @@ position = Vector2( 72.2729, 530.261 )
 [node name="KinematicBody2D" parent="." index="3" instance=ExtResource( 3 )]
 
 position = Vector2( 781.991, 528.539 )
+
+[node name="KinematicBody2D2" parent="." index="4" instance=ExtResource( 4 )]
+
+position = Vector2( 810.789, 310.928 )
 
 

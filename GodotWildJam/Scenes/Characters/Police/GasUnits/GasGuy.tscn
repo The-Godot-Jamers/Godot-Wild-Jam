@@ -21,7 +21,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+[node name="KinematicBody2D" type="KinematicBody2D"]
 
 input_pickable = false
 collision_layer = 1
@@ -35,16 +35,18 @@ health = null
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
+position = Vector2( -17.8745, 12.1893 )
+scale = Vector2( 0.701476, 0.759616 )
 build_mode = 0
 polygon = PoolVector2Array( 36.562, 32.1888, 46.8896, 27.4222, 50.8617, 15.903, 90.1859, 2.39773, 96.1442, -11.5048, 124.744, -13.0936, 123.949, -30.5711, 5.97652, -33.7488, 1.20995, -39.707, -40.8948, -40.8986, -54.4001, -38.1181, -63.536, -20.2435, -36.5254, 19.4779, -10.7065, 34.5721, 20.2762, 36.5582 )
 
 [node name="AnimatedSprite_Body" type="AnimatedSprite" parent="." index="1"]
 
-position = Vector2( 29.9895, -3.9205 )
+position = Vector2( 5.28915, 9.62343 )
 rotation = -1.57373
-scale = Vector2( 0.280943, 0.280943 )
+scale = Vector2( 0.198059, 0.198059 )
 frames = SubResource( 1 )
-animation = "idle"
+animation = "walk"
 playing = true
 
 [node name="Head" type="Sprite" parent="." index="2"]

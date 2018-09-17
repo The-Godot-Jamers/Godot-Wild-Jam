@@ -1,12 +1,17 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/Characters and Animations/Test/Walk2.png" type="Texture" id=3]
-[ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=4]
-[ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=5]
-[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Front.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/DefaultPushAttack.png" type="Texture" id=5]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/DefaultPunch_WindUp.png" type="Texture" id=6]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/DefaultPunch.png" type="Texture" id=7]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Behind.png" type="Texture" id=8]
+[ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=9]
+[ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=10]
+[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=12]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -16,19 +21,39 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
-"name": "walk",
-"speed": 4.0
+"name": "FallBack",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "Push",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "Punch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "FallFront",
+"speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
 "name": "run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 9 ), ExtResource( 3 ), ExtResource( 10 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 rotation = 0.000822698
 input_pickable = false
@@ -50,9 +75,7 @@ polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671
 
 position = Vector2( -8.79183, -16.5738 )
 rotation = -1.5708
-scale = Vector2( 1, 1 )
 _sections_unfolded = [ "Transform" ]
-talk_value = 5
 
 [node name="Body" type="AnimatedSprite" parent="." index="2"]
 
@@ -70,9 +93,9 @@ rotation = 0.00203246
 [node name="Head" type="Sprite" parent="." index="3"]
 
 rotation = 0.00203246
-texture = ExtResource( 6 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="PlayerCamera" parent="." index="4" instance=ExtResource( 7 )]
+[node name="PlayerCamera" parent="." index="4" instance=ExtResource( 12 )]
 
 
