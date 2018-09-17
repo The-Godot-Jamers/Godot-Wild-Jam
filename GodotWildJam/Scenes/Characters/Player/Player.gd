@@ -52,7 +52,8 @@ func control(delta):
 		move_and_slide (velocity,Vector2(0, 0))
 		$Body.play("walk")
 	velocity = Vector2(0, 0)
-
+	if Input.is_action_just_pressed("Interact"):
+		$talk.talk(self)
 
 
 

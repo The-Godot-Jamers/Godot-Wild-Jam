@@ -1,21 +1,22 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Art/Characters and Animations/Test/Walk2.png" type="Texture" id=2]
-[ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=3]
-[ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=4]
-[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Art/Characters and Animations/Test/Walk2.png" type="Texture" id=3]
+[ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=5]
+[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walk",
 "speed": 4.0
@@ -45,7 +46,15 @@ health = null
 build_mode = 0
 polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671, 22.2529, 1.24284, 18.749, -1.96904, 14.9532, -11.0207, 9.4054, -19.1964, 4.5256, -43.8544, -4.2955, -47.5298, -14.5868, -40.914, -24.143, -15.9208, -27.0834, 14.953, -16.057, 41.4164, -16.057, 44.3567, -8.70605, 51.7077 )
 
-[node name="Body" type="AnimatedSprite" parent="." index="1"]
+[node name="talk" parent="." index="1" instance=ExtResource( 2 )]
+
+position = Vector2( -8.79183, -16.5738 )
+rotation = -1.5708
+scale = Vector2( 1, 1 )
+_sections_unfolded = [ "Transform" ]
+talk_value = 5
+
+[node name="Body" type="AnimatedSprite" parent="." index="2"]
 
 rotation = -5.82077e-011
 z_index = -1
@@ -58,12 +67,12 @@ _sections_unfolded = [ "Z Index" ]
 
 rotation = 0.00203246
 
-[node name="Head" type="Sprite" parent="." index="2"]
+[node name="Head" type="Sprite" parent="." index="3"]
 
 rotation = 0.00203246
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility", "Z Index" ]
 
-[node name="PlayerCamera" parent="." index="3" instance=ExtResource( 6 )]
+[node name="PlayerCamera" parent="." index="4" instance=ExtResource( 7 )]
 
 

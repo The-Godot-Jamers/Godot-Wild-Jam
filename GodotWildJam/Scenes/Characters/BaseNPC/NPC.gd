@@ -23,11 +23,14 @@ var move_distance = 0
 var direction = Vector2()
 
 func _ready():
+	care_about_issue += rand_range(-10,10)
 	#maybe some general variations and stuff
 	$Timer.wait_time += rand_range(-0.2, 0.2)
 	$Timer.connect("timeout",self,"do_something")
 
 func do_something():
+	if rand_range(0,100) < care_about_issue / 10:
+		$talk.talk(self)
 	direction = Vector2(rand_range(-1,1), rand_range(-1,1))
 	move_distance = rand_range(10,50)
 

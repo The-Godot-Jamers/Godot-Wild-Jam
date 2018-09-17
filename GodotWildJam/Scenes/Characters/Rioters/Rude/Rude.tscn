@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Characters/Rioters/Rioters.gd" type="Script" id=1]
 [ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk2.png" type="Texture" id=2]
 [ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk1.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/Rude/RudeWalk3.png" type="Texture" id=4]
 [ext_resource path="res://Art/Characters and Animations/Rude/RudeHead.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -69,5 +70,7 @@ process_mode = 1
 wait_time = 1.0
 one_shot = true
 autostart = true
+
+[node name="talk" parent="." index="4" instance=ExtResource( 6 )]
 
 
