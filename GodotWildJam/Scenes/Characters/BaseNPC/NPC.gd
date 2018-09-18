@@ -12,7 +12,7 @@ var police_interest = 0 #how much do you annoy the police
 export (PackedScene) var Bullet # for Thrown Obejcts
 export (int) var speed = 50
 export (float) var rotation_speed #for character rotation
-export (int) var health
+export (int) var health = 30
 
 var velocity = Vector2()
 var can_throw = true
@@ -61,4 +61,5 @@ func _physics_process(delta):
 		return
 	control(delta)
 
-
+func take_hit(amt):
+	health -= amt

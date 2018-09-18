@@ -1,17 +1,16 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Levels/level.gd" type="Script" id=1]
 [ext_resource path="res://Art/Background Assets/TestLevel.png" type="Texture" id=2]
 [ext_resource path="res://Art/Background Assets/wall.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Characters/Player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Characters/Police/GasUnits/GasGuy.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 254, 170 )
 
-[node name="test_lvl" type="Node2D" index="0"]
+[node name="test_lvl" type="Node2D"]
 
 script = ExtResource( 1 )
 people_count = 10
@@ -30,7 +29,9 @@ __meta__ = {
 
 [node name="ItemContainer" type="Node2D" parent="." index="1"]
 
-[node name="walls" type="StaticBody2D" parent="." index="2"]
+[node name="walls" type="StaticBody2D" parent="." index="2" groups=[
+"WALLS",
+]]
 
 input_pickable = false
 collision_layer = 8
@@ -88,9 +89,5 @@ texture = ExtResource( 3 )
 [node name="Player" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 72.2729, 530.261 )
-
-[node name="KinematicBody2D" parent="." index="4" instance=ExtResource( 5 )]
-
-position = Vector2( 290.533, 472.319 )
 
 
