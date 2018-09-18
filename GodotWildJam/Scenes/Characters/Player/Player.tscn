@@ -28,7 +28,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "PLAYER",
 ]]
 
@@ -59,7 +59,7 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 rotation = -5.82077e-011
 frames = SubResource( 1 )
-animation = "idle"
+animation = "walk"
 _sections_unfolded = [ "Z Index" ]
 
 [node name="Look_at" type="Position2D" parent="Body" index="0"]
