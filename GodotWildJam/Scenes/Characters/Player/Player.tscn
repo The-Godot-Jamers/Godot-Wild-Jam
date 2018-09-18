@@ -2,6 +2,7 @@
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=2]
+<<<<<<< HEAD
 [ext_resource path="res://Art/Characters and Animations/Test/Walk2.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=4]
 [ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=5]
@@ -9,6 +10,13 @@
 [ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Front.png" type="Texture" id=7]
 [ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=8]
 [ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=9]
+=======
+[ext_resource path="res://Art/Characters and Animations/Rude-Pixels/boy-walk-2.png" type="Texture" id=3]
+[ext_resource path="res://Art/Characters and Animations/Rude-Pixels/boy-walk-1.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/Rude-Pixels/boy-walk-3.png" type="Texture" id=5]
+[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=7]
+>>>>>>> 3f4ec2c86c10ba59d52d143b6db9d9a2beaca5d1
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -18,7 +26,7 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
 "loop": true,
 "name": "walk",
 "speed": 4.0
@@ -49,7 +57,7 @@ _sections_unfolded = [ "Collision" ]
 Bullet = null
 speed = 10
 rotation_speed = null
-health = null
+health = 100
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 

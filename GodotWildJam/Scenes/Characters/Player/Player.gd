@@ -19,6 +19,8 @@ var can_throw = true
 var alive = true #Death animation
 var knocked_down = false #Knocked down animation
 
+var throw_speed = 50
+
 var inventory = []
 
 
@@ -76,20 +78,24 @@ func control(delta):
 					inventory.append(i)
 					i.hide()
 					i.pickable = false
-					print("inventory ", inventory)
 					
-	
 	if Input.is_action_just_pressed("attack_push_throw"):
-		print("inventory ", inventory)
 		if UI.inventory_selected > -1 && UI.inventory_selected < inventory.size():
-			print("UI.inv_sel ", UI.inventory_selected)
-			var inst = inventory[UI.inventory_selected]
-			inst.position = position
-			inst.show()
-			print("inv_removed ", UI.inventory_selected)
-			inventory.remove(UI.inventory_selected)
-			#UI.inventory_remove(UI.inventory_selected)
-			print("inv ", inventory)
-			inst.pickable = true
+			throw()
+
+func throw():
+		var inst = inventory[UI.inventory_selected]
+		inventory.remove(UI.inventory_selected)
+		inst.position = position
+		inst.show()
+		var direction = (position - get_global_mouse_position()).normalized()
+		inst.rotation = direction.angle() -deg2rad(180)
+		inst.velocity = -direction * throw_speed
+		inst.thrower = self
+		#UI.inventory_remove(UI.inventory_selected)
+		if inventory.size() > -1:
 			UI.inventory_resuffle(inventory)
+
+func take_hit(amt):
+	health -= amt
 

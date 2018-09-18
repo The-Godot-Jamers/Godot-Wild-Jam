@@ -4,4 +4,4 @@ extends "res://Scenes/Characters/BaseNPC/NPC.gd"
 
 func _ready():
 	hot_headedness += rand_range(+15, +30)
-
+	$Head.texture = load(Globals.heads[randi() % Globals.heads.size()])
