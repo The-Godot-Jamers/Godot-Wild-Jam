@@ -1,0 +1,75 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Scenes/Characters/BaseNPC/NPC.gd" type="Script" id=1]
+[ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_0.png" type="Texture" id=2]
+[ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_1.png" type="Texture" id=3]
+[ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_2.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_Head.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=6]
+
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+_sections_unfolded = [ "Resource" ]
+
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
+
+input_pickable = false
+collision_layer = 2
+collision_mask = 11
+collision/safe_margin = 0.08
+script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
+__meta__ = {
+"_edit_horizontal_guides_": [ -16.6429, 21.3958 ]
+}
+Bullet = null
+speed = 50
+rotation_speed = null
+health = null
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+position = Vector2( 0.527039, -0.527046 )
+build_mode = 0
+polygon = PoolVector2Array( 2.26949, 9.16503, 20.2114, 12.7249, 21.2081, 8.73785, 20.069, -14.1879, -1.4328, -10.0584, -7.84061, -10.2008, -11.8277, -2.65381, -8.1254, 6.74431, -4.42311, 9.44983 )
+
+[node name="AnimatedSprite_Body" type="AnimatedSprite" parent="." index="1"]
+
+position = Vector2( -0.615883, -1.32352 )
+rotation = -1.57128
+scale = Vector2( 0.111351, 0.110915 )
+frames = SubResource( 1 )
+animation = "walk"
+frame = 2
+playing = true
+
+[node name="Head" type="Sprite" parent="." index="2"]
+
+position = Vector2( -0.23181, -1.10228 )
+rotation = -1.58201
+scale = Vector2( 0.0635973, 0.0635973 )
+texture = ExtResource( 5 )
+
+[node name="Look_at" type="Position2D" parent="Head" index="0"]
+
+[node name="Timer" type="Timer" parent="." index="3"]
+
+process_mode = 1
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[node name="talk" parent="." index="4" instance=ExtResource( 6 )]
+
+

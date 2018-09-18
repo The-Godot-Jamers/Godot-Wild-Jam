@@ -1,12 +1,14 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/Characters and Animations/Test/Walk2.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=4]
 [ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=5]
-[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Behind.png" type="Texture" id=6]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Front.png" type="Texture" id=7]
+[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=8]
+[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=9]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -25,10 +27,15 @@ animations = [ {
 "loop": true,
 "name": "run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "KD",
+"speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="Player" type="KinematicBody2D" index="0" groups=[
+[node name="Player" type="KinematicBody2D" groups=[
 "PLAYER",
 ]]
 
@@ -57,9 +64,11 @@ _sections_unfolded = [ "Collision", "Transform" ]
 
 [node name="Body" type="AnimatedSprite" parent="." index="2"]
 
+position = Vector2( 8.48951, 20.7787 )
 rotation = -5.82077e-011
+scale = Vector2( 0.300865, 0.300865 )
 frames = SubResource( 1 )
-animation = "walk"
+animation = "idle"
 _sections_unfolded = [ "Z Index" ]
 
 [node name="Look_at" type="Position2D" parent="Body" index="0"]
@@ -69,9 +78,9 @@ rotation = 0.00203246
 [node name="Head" type="Sprite" parent="." index="3"]
 
 rotation = 0.00203246
-texture = ExtResource( 6 )
+texture = ExtResource( 8 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility" ]
 
-[node name="PlayerCamera" parent="." index="4" instance=ExtResource( 7 )]
+[node name="PlayerCamera" parent="." index="4" instance=ExtResource( 9 )]
 
 
