@@ -11,6 +11,13 @@ var colors = ["#472D3C","#5E3643","#7A444A","#A05B53","#BF7958","#EEA160","#FFFD
 var human_colors = ["#472D3C","#5E3643","#7A444A","#A05B53","#BF7958","#EEA160","#FFFDAF"]
 var police_colors = ["#3978A8","#394778","#302387","#4F546B"]
 
+var heads = ["res://Art/Characters and Animations/Rude-Pixels/head-01.png","res://Art/Characters and Animations/Rude-Pixels/head-02.png",
+			"res://Art/Characters and Animations/Rude-Pixels/head-03.png","res://Art/Characters and Animations/Rude-Pixels/head-04.png",
+			"res://Art/Characters and Animations/Rude-Pixels/head-05.png","res://Art/Characters and Animations/Rude-Pixels/head-06.png",
+			"res://Art/Characters and Animations/Rude-Pixels/head-07.png","res://Art/Characters and Animations/Rude-Pixels/head-08.png",
+			"res://Art/Characters and Animations/Rude-Pixels/head-09.png","res://Art/Characters and Animations/Rude-Pixels/head-10.png"]
+
+
 func _ready():
 	randomize()
 
