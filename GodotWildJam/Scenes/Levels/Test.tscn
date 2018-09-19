@@ -1,25 +1,16 @@
-<<<<<<< HEAD
-[gd_scene load_steps=8 format=2]
-=======
 [gd_scene load_steps=6 format=2]
->>>>>>> 3f4ec2c86c10ba59d52d143b6db9d9a2beaca5d1
 
 [ext_resource path="res://Scenes/Levels/level.gd" type="Script" id=1]
 [ext_resource path="res://Art/Background Assets/TestLevel.png" type="Texture" id=2]
 [ext_resource path="res://Art/Background Assets/wall.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Characters/Player/Player.tscn" type="PackedScene" id=4]
-<<<<<<< HEAD
-[ext_resource path="res://Scenes/Characters/Police/GasUnits/GasGuy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Characters/Police/Cop_Rusher/Cop_Rusher.tscn" type="PackedScene" id=6]
-=======
->>>>>>> 3f4ec2c86c10ba59d52d143b6db9d9a2beaca5d1
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 254, 170 )
 
-[node name="test_lvl" type="Node2D"]
+[node name="test_lvl" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 people_count = 10
@@ -28,10 +19,11 @@ police_count = 10
 
 [node name="TestLevel" type="Sprite" parent="." index="0"]
 
+modulate = Color( 0.945313, 0.768066, 0.768066, 1 )
 position = Vector2( 959.342, 540.91 )
 z_index = -1
 texture = ExtResource( 2 )
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Visibility", "Z Index" ]
 __meta__ = {
 "_edit_lock_": true
 }
@@ -99,15 +91,4 @@ texture = ExtResource( 3 )
 
 position = Vector2( 72.2729, 530.261 )
 
-<<<<<<< HEAD
-[node name="KinematicBody2D" parent="." index="4" instance=ExtResource( 5 )]
-
-position = Vector2( 290.533, 472.319 )
-
-[node name="KinematicBody2D2" parent="." index="5" instance=ExtResource( 6 )]
-
-position = Vector2( 292.313, 558.954 )
-
-=======
->>>>>>> 3f4ec2c86c10ba59d52d143b6db9d9a2beaca5d1
 

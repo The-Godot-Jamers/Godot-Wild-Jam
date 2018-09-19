@@ -16,7 +16,7 @@ var heads = ["res://Art/Characters and Animations/Rude-Pixels/head-01.png","res:
 			"res://Art/Characters and Animations/Rude-Pixels/head-05.png","res://Art/Characters and Animations/Rude-Pixels/head-06.png",
 			"res://Art/Characters and Animations/Rude-Pixels/head-07.png","res://Art/Characters and Animations/Rude-Pixels/head-08.png",
 			"res://Art/Characters and Animations/Rude-Pixels/head-09.png","res://Art/Characters and Animations/Rude-Pixels/head-10.png"]
-
+	
 
 func _ready():
 	randomize()

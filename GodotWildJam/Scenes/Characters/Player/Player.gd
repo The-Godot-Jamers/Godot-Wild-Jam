@@ -47,8 +47,10 @@ func _physics_process(delta):
 func control(delta):
 	
 	#$Player/AnimatedSprite.play("walk")
-	$Head.look_at(get_global_mouse_position())
+	$Head.look_at(get_global_mouse_position()) 
 	$Body.look_at(get_global_mouse_position())
+	$Body.rotation_degrees += 90
+	$Head.rotation_degrees += 90
 	var m_speed = speed * 10
 
 	if Input.is_action_pressed('Right'):
@@ -98,4 +100,5 @@ func throw():
 
 func take_hit(amt):
 	health -= amt
+
 

@@ -1,22 +1,12 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=2]
-<<<<<<< HEAD
-[ext_resource path="res://Art/Characters and Animations/Test/Walk2.png" type="Texture" id=3]
-[ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=4]
-[ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=5]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Behind.png" type="Texture" id=6]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Front.png" type="Texture" id=7]
-[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=8]
-[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=9]
-=======
 [ext_resource path="res://Art/Characters and Animations/Rude-Pixels/boy-walk-2.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/Rude-Pixels/boy-walk-1.png" type="Texture" id=4]
 [ext_resource path="res://Art/Characters and Animations/Rude-Pixels/boy-walk-3.png" type="Texture" id=5]
-[ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=6]
+[ext_resource path="res://Art/Characters and Animations/Rude-Pixels/head-10.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=7]
->>>>>>> 3f4ec2c86c10ba59d52d143b6db9d9a2beaca5d1
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -35,13 +25,33 @@ animations = [ {
 "loop": true,
 "name": "run",
 "speed": 5.0
-}, {
-"frames": [ ExtResource( 6 ), ExtResource( 7 ) ],
-"loop": true,
-"name": "KD",
-"speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
+
+[sub_resource type="Shader" id=2]
+
+code = "shader_type canvas_item;
+
+void fragment() 
+{
+	vec4 col;
+	col = texture(TEXTURE,UV);
+	col.r = (1.0/cos(TIME)) * col.r;
+	//col.g = (1.0/cos(TIME)) * col.g;
+	col.b = 0.0;
+	COLOR = col;
+}"
+
+[sub_resource type="ShaderMaterial" id=3]
+
+render_priority = 0
+shader = SubResource( 2 )
+
+[sub_resource type="CapsuleShape2D" id=4]
+
+custom_solver_bias = 0.0
+radius = 10.0
+height = 20.0
 
 [node name="Player" type="KinematicBody2D" groups=[
 "PLAYER",
@@ -53,42 +63,44 @@ collision_layer = 1
 collision_mask = 10
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
-_sections_unfolded = [ "Collision" ]
+_sections_unfolded = [ "Collision", "Material" ]
 Bullet = null
 speed = 10
 rotation_speed = null
-health = 100
+health = null
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( 3.85757, 47.9611, 9.69737, 19.6382, 16.9971, 4.74671, 22.2529, 1.24284, 18.749, -1.96904, 14.9532, -11.0207, 9.4054, -19.1964, 4.5256, -43.8544, -4.2955, -47.5298, -14.5868, -40.914, -24.143, -15.9208, -27.0834, 14.953, -16.057, 41.4164, -16.057, 44.3567, -8.70605, 51.7077 )
-
-[node name="talk" parent="." index="1" instance=ExtResource( 2 )]
+[node name="talk" parent="." index="0" instance=ExtResource( 2 )]
 
 position = Vector2( -8.79183, -16.5738 )
 rotation = -1.5708
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Body" type="AnimatedSprite" parent="." index="2"]
+[node name="Body" type="AnimatedSprite" parent="." index="1"]
 
-position = Vector2( 8.48951, 20.7787 )
-rotation = -5.82077e-011
+modulate = Color( 0.901961, 0.282353, 0.180392, 1 )
+rotation = 1.5708
 scale = Vector2( 0.300865, 0.300865 )
 frames = SubResource( 1 )
 animation = "idle"
-_sections_unfolded = [ "Z Index" ]
+_sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Look_at" type="Position2D" parent="Body" index="0"]
 
 rotation = 0.00203246
 
-[node name="Head" type="Sprite" parent="." index="3"]
+[node name="Head" type="Sprite" parent="." index="2"]
 
-rotation = 0.00203246
-texture = ExtResource( 8 )
+material = SubResource( 3 )
+rotation = 1.5708
+scale = Vector2( 0.300865, 0.300865 )
+texture = ExtResource( 6 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility" ]
 
-[node name="PlayerCamera" parent="." index="4" instance=ExtResource( 9 )]
+[node name="PlayerCamera" parent="." index="3" instance=ExtResource( 7 )]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+
+position = Vector2( -4.86192, 1.62508 )
+shape = SubResource( 4 )
 
 
