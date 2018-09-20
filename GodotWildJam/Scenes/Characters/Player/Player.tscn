@@ -2,29 +2,30 @@
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Art/Characters and Animations/Rude-Pixels/boy-walk-2.png" type="Texture" id=3]
-[ext_resource path="res://Art/Characters and Animations/Rude-Pixels/boy-walk-1.png" type="Texture" id=4]
-[ext_resource path="res://Art/Characters and Animations/Rude-Pixels/boy-walk-3.png" type="Texture" id=5]
-[ext_resource path="res://Art/Characters and Animations/Rude-Pixels/head-10.png" type="Texture" id=6]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_3.png" type="Texture" id=3]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_1.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_2.png" type="Texture" id=5]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Head/MC_head.png" type="Texture" id=6]
 [ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
+resource_local_to_scene = true
 animations = [ {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ) ],
-"loop": true,
-"name": "walk",
-"speed": 4.0
-}, {
 "frames": [  ],
 "loop": true,
 "name": "run",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ), ExtResource( 3 ), ExtResource( 5 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -53,7 +54,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "PLAYER",
 ]]
 
@@ -81,7 +82,8 @@ modulate = Color( 0.901961, 0.282353, 0.180392, 1 )
 rotation = 1.5708
 scale = Vector2( 0.300865, 0.300865 )
 frames = SubResource( 1 )
-animation = "idle"
+animation = "walk"
+playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Look_at" type="Position2D" parent="Body" index="0"]
@@ -91,8 +93,9 @@ rotation = 0.00203246
 [node name="Head" type="Sprite" parent="." index="2"]
 
 material = SubResource( 3 )
+position = Vector2( -2.71027, -0.606673 )
 rotation = 1.5708
-scale = Vector2( 0.300865, 0.300865 )
+scale = Vector2( 0.14137, 0.14137 )
 texture = ExtResource( 6 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility" ]
 
