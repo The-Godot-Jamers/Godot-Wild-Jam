@@ -46,24 +46,24 @@ func conga(who):
 
 func do_something():
 	if not is_in_group("POLICE"):
-		if rand_range(0,100) < care_about_issue && rand_range(0,100) > 90:
+		if rand_range(0,100) < care_about_issue && rand_range(0,100) > 98:
 			if care_about_issue > 70 && hot_headedness > 50 && rand_range(0,100) > 70:
 				$talk.yell(self)
 			else:
 				$talk.talk(self)
 			return
-		direction = Vector2(rand_range(-1,1), rand_range(-1,1))
-		move_distance = rand_range(10,50)
+	direction = Vector2(rand_range(-1,1), rand_range(-1,1))
+	move_distance = rand_range(10,50)
 
 func control(delta):
 	#move_and_slide etc.
-	if free > 0:
+	if free <= 0:
 		free += 1
 		return
 	if conga != null && conga != self && $Timer.is_stopped():  
 		if move_distance > 0:
-			direction = Globals.player.get_ref().global_position - global_position
-			#direction = conga.global_position - global_position
+			#direction = Globals.player.get_ref().global_position - global_position
+			direction = conga.global_position - global_position
 			look_at(position + direction.normalized())
 			move_and_slide(direction.normalized() * speed)
 			move_distance -= speed * delta

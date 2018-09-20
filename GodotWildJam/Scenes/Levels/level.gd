@@ -32,15 +32,7 @@ func _ready():
 			inst = police.instance()
 		inst.position = Vector2(rand_range(20,1904),rand_range(20,1050))
 		add_child(inst)
-#adding stuff is bit different
-#	for i in item_count:
-#		var inst = brick.instance()
-#		inst.position = Vector2(rand_range(20,1004),rand_range(20,580))
-#		$ItemContainer.add_child(inst)
-#		inst = bottle.instance()
-#		inst.position = Vector2(rand_range(20,1004),rand_range(20,580))
-#		$ItemContainer.add_child(inst)
-#	print(get_child_count())
+
 func _process(delta):
 	var npc = get_tree().get_nodes_in_group("NPC")
 	var care_lvl = 0

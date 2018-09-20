@@ -20,8 +20,11 @@ func talk(who):
 				if not i.is_in_group("POLICE"):
 					i.care_about_issue += talk_value
 					i.care_about_issue = clamp(i.care_about_issue,0,100)
-					#Globals.conga_line.append(i)
-					i.conga(who)
+					if !i.conga:
+						i.conga(who)
+						if Globals.conga_line.size() >= 0:
+							i.conga(Globals.conga_line[Globals.conga_line.size() - 1])
+						Globals.conga_line.append(i)
 
 func yell(who):
 	if can_act:
@@ -41,7 +44,11 @@ func yell(who):
 						i.care_about_issue -= yell_value
 						i.care_about_issue = clamp(i.care_about_issue,0,100)
 					#Globals.conga_line.append(i)
-					i.conga(who)
+					if !i.conga:
+						i.conga(who)
+						if Globals.conga_line.size() >= 0:
+							i.conga(Globals.conga_line[Globals.conga_line.size() - 1])
+						Globals.conga_line.append(i)
 
 
 func _on_AnimationPlayer_animation_finished(anim_name):

@@ -22,6 +22,7 @@ var conga_line = []
 var player = null
 
 func _ready():
+	conga_line = []
 	randomize()
 
 func riot_lvl_set(lvl):
