@@ -27,6 +27,7 @@ var inventory = []
 
 func _ready():
 	#player setup
+	Globals.player = weakref( self )
 	pass
 
 func _physics_process(delta):
