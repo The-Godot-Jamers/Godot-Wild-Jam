@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/Characters/BaseNPC/NPC.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Characters/Police/NightStick/NightStick.gd" type="Script" id=1]
 [ext_resource path="res://Art/Characters and Animations/NightStick/Default_Walk0.png" type="Texture" id=2]
 [ext_resource path="res://Art/Characters and Animations/NightStick/Default_Walk1.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/NightStick/Default_Walk2.png" type="Texture" id=4]
@@ -27,7 +27,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2

@@ -35,12 +35,12 @@ __meta__ = {
 Bullet = null
 speed = 50
 rotation_speed = null
-health = null
+health = 30
 
 [node name="Polygon2DLOS" type="Polygon2D" parent="." index="0"]
 
 visible = false
-position = Vector2( 0, 2.38419e-007 )
+position = Vector2( 0, 2.38419e-07 )
 polygon = PoolVector2Array( -1.99976, 0.000366211, 1023.8, -126.936, 1023.8, 117.253 )
 uv = PoolVector2Array(  )
 color = Color( 1, 1, 1, 1 )
@@ -70,6 +70,7 @@ rotation = -1.57373
 scale = Vector2( 0.0823106, 0.0704661 )
 frames = SubResource( 1 )
 animation = "walk"
+frame = 1
 playing = true
 _sections_unfolded = [ "Transform" ]
 

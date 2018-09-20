@@ -54,7 +54,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="Player" type="KinematicBody2D" index="0" groups=[
+[node name="Player" type="KinematicBody2D" groups=[
 "PLAYER",
 ]]
 
@@ -84,7 +84,7 @@ rotation = 1.5708
 scale = Vector2( 0.172224, 0.172224 )
 frames = SubResource( 1 )
 animation = "walk"
-frame = 3
+frame = 2
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
