@@ -36,7 +36,7 @@ __meta__ = {
 Bullet = null
 speed = 50
 rotation_speed = null
-health = null
+health = 30
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
@@ -46,17 +46,17 @@ polygon = PoolVector2Array( 2.26949, 9.16503, 20.2114, 12.7249, 21.2081, 8.73785
 
 [node name="AnimatedSprite_Body" type="AnimatedSprite" parent="." index="1"]
 
-position = Vector2( -0.615883, -1.32352 )
-rotation = -1.57128
+position = Vector2( -0.092514, 0.0372419 )
+rotation = 1.56961
 scale = Vector2( 0.111351, 0.110915 )
 frames = SubResource( 1 )
 animation = "walk"
-frame = 2
+frame = 3
 playing = true
 
 [node name="Head" type="Sprite" parent="." index="2"]
 
-position = Vector2( -0.23181, -1.10228 )
+position = Vector2( 0.0822121, -0.0555423 )
 rotation = -1.58201
 scale = Vector2( 0.0635973, 0.0635973 )
 texture = ExtResource( 5 )
