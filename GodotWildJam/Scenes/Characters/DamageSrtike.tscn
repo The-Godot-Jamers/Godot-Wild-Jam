@@ -1,13 +1,46 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Characters/DamageSrtike.gd" type="Script" id=1]
+[ext_resource path="res://sounds/punch.wav" type="AudioStream" id=2]
+[ext_resource path="res://Art/Characters and Animations/HitLands.png" type="Texture" id=3]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Area2DDamageStrike" type="Area2D" index="0" groups=[
+[sub_resource type="Animation" id=2]
+
+resource_name = "Hit_Lands"
+length = 1.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("HitLands2:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("HitLands2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ true, true ]
+}
+
+[node name="Area2DDamageStrike" type="Area2D" groups=[
 "Stirke",
 ]]
 
@@ -26,15 +59,37 @@ damage = 1
 position = Vector2( 0.0609112, 0.108417 )
 scale = Vector2( 0.452417, 0.452417 )
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="1"]
+[node name="HitLands" type="AudioStreamPlayer2D" parent="." index="1"]
+
+stream = ExtResource( 2 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
 
 root_node = NodePath("..")
 autoplay = ""
 playback_process_mode = 1
 playback_default_blend_time = 0.0
 playback_speed = 1.0
+anims/Hit_Lands = SubResource( 2 )
 blend_times = [  ]
+
+[node name="HitLands2" type="Sprite" parent="." index="3"]
+
+position = Vector2( -0.00925636, 0.215878 )
+scale = Vector2( 0.240912, 0.240912 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 
 [connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 

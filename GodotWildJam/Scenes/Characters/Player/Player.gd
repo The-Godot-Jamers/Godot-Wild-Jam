@@ -66,9 +66,9 @@ func control(delta):
 	if velocity ==  Vector2(0, 0): 
 		$Body.play("idle")
 	else:
-		if Input.is_action_pressed('Punch'): #hope this works_Zon
+		if Input.is_action_pressed('punch'): #hope this works_Zon
 			$Body.play ("punch")
-			$PunchNoise.play()
+
 			
 		else: 
 			move_and_slide (velocity,Vector2(0, 0))
