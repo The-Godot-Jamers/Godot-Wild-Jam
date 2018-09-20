@@ -12,7 +12,7 @@ var police_interest = 0 #how much do you annoy the police
 export (PackedScene) var Bullet # for Thrown Obejcts
 export (int) var speed = 10
 export (float) var rotation_speed #for character rotation
-export (int) var health
+export (int) var health = 100
 
 var velocity = Vector2()
 var can_throw = true
@@ -103,6 +103,16 @@ func throw():
 			UI.inventory_resuffle(inventory)
 
 func take_hit(amt):
-	health -= amt
+	if alive:
+		health -= amt
+		if health <= 0:
+			die()
+
+func die():
+	alive = false
+	$Body.play("die")
+	$Head.hide()
+	print("1")
+	get_parent().player_dead()
 
 

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/El Murki - Pachacuti Subliminal.ogg-7d0d5b539dc6331b04263e8012f7336a.oggstr"
+
+[deps]
+
+source_file="res://sounds/El Murki - Pachacuti Subliminal.ogg"
+dest_files=[ "res://.import/El Murki - Pachacuti Subliminal.ogg-7d0d5b539dc6331b04263e8012f7336a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

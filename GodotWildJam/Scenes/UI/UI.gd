@@ -89,7 +89,6 @@ func inventory_select(slot):
 func start_pressed():
 	$AudioStreamPlayer.play()
 	get_tree().change_scene_to(load("res://Scenes/Levels/Test.tscn"))
-	change_buttons()
 	menu_toggle()
 	$canvas/Overall.show()
 	riot_lvl_update(Globals.riot_lvl)

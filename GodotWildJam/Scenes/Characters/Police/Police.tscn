@@ -38,7 +38,7 @@ _sections_unfolded = [ "Collision", "Material" ]
 Bullet = null
 speed = 50
 rotation_speed = null
-health = null
+health = 30
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
@@ -72,10 +72,12 @@ position = Vector2( 634.179, -298.888 )
 process_mode = 1
 wait_time = 1.0
 one_shot = true
-autostart = true
+autostart = false
 
 [node name="talk" parent="." index="4" instance=ExtResource( 6 )]
 
 visible = false
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
 
 

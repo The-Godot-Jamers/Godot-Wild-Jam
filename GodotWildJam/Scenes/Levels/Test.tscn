@@ -4,13 +4,31 @@
 [ext_resource path="res://Art/Background Assets/TestLevel.png" type="Texture" id=2]
 [ext_resource path="res://Art/Background Assets/wall.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Characters/Player/Player.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Characters/Police/NightStick/NightStick.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Characters/Police/Cop_Rusher/Cop_Rusher.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/El Murki - Pachacuti Subliminal.ogg" type="AudioStream" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 
 custom_solver_bias = 0.0
 extents = Vector2( 254, 170 )
+
+[sub_resource type="Animation" id=2]
+
+resource_name = "player_dead"
+length = 4.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
+}
 
 [node name="test_lvl" type="Node2D" index="0"]
 
@@ -37,6 +55,7 @@ __meta__ = {
 "WALLS",
 ]]
 
+editor/display_folded = true
 input_pickable = false
 collision_layer = 8
 collision_mask = 3
@@ -92,14 +111,31 @@ texture = ExtResource( 3 )
 
 [node name="Player" parent="." index="3" instance=ExtResource( 4 )]
 
-position = Vector2( 72.2729, 530.261 )
+position = Vector2( 900.694, 567.171 )
 
-[node name="KinematicBody2D" parent="." index="4" instance=ExtResource( 5 )]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." index="4"]
 
-position = Vector2( 229.922, 493.227 )
+stream = ExtResource( 5 )
+volume_db = -5.0
+pitch_scale = 1.0
+autoplay = true
+mix_target = 0
+bus = "Master"
 
-[node name="KinematicBody2D2" parent="." index="5" instance=ExtResource( 6 )]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="5"]
 
-position = Vector2( 195.494, 623.845 )
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/player_dead = SubResource( 2 )
+blend_times = [  ]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="." index="6"]
+
+color = Color( 1, 1, 1, 1 )
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 
 

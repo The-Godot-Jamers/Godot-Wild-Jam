@@ -1,12 +1,13 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_3.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/Main Character/Walk/boy-walk-1.png" type="Texture" id=4]
 [ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_2.png" type="Texture" id=5]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Head/MC_Head.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Front.png" type="Texture" id=6]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Head/MC_Head.png" type="Texture" id=7]
+[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=8]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -25,6 +26,11 @@ animations = [ {
 "frames": [  ],
 "loop": true,
 "name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "die",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -68,7 +74,7 @@ _sections_unfolded = [ "Collision", "Material" ]
 Bullet = null
 speed = 10
 rotation_speed = null
-health = null
+health = 100
 
 [node name="talk" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -83,8 +89,7 @@ position = Vector2( -0.0338719, 0.0739138 )
 rotation = 1.5708
 scale = Vector2( 0.172224, 0.172224 )
 frames = SubResource( 1 )
-animation = "walk"
-frame = 3
+animation = "idle"
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
@@ -98,10 +103,10 @@ material = SubResource( 3 )
 position = Vector2( 0.396189, 0.320516 )
 rotation = 1.5708
 scale = Vector2( 0.131311, 0.131311 )
-texture = ExtResource( 6 )
+texture = ExtResource( 7 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility" ]
 
-[node name="PlayerCamera" parent="." index="3" instance=ExtResource( 7 )]
+[node name="PlayerCamera" parent="." index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -0.000117148, -0.142395 )
 

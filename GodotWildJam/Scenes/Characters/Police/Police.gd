@@ -2,22 +2,16 @@ extends "res://Scenes/Characters/BaseNPC/NPC.gd"
 
 #They should have special base behaviors as a class.
 
-
+var search_distance = 300
 
 func _ready():
 	care_about_issue = 0
 	$AnimatedSprite_Body.modulate = Globals.police_colors[randi() % Globals.police_colors.size()]
 	$Head.modulate = Globals.police_colors[randi() % Globals.police_colors.size()]
 
-
-
-
-
 func _physics_process(delta):
 	if not alive:
 		return
-	
-	
 	# look towards where we're going
 	look_at( position + velocity )
 	
@@ -26,55 +20,58 @@ func _physics_process(delta):
 	state_cur = state_nxt
 	match state_cur:
 		STATES.WANDER:
-			_state_wander( delta )
+			state_wander( delta )
 		STATES.TARGET:
-			_state_target( delta )
+			state_target( delta )
+		STATES.HIT:
+			state_hit()
 	
 	
 	if knocked_down:
 		return
 	#control(delta)
 
-
-
-
 enum STATES { WANDER, TARGET, HIT }
 var state_cur = -1
 var state_nxt = STATES.WANDER
 const MAX_VELOCITY = 50
 var target = null
-
+var can_hit = true
 
 func steering( target_pos ):
 	var desired_velocity = ( target_pos - global_position ).normalized() * MAX_VELOCITY
 	velocity += desired_velocity
 	velocity = velocity.clamped( MAX_VELOCITY )
 
+func state_hit(): 
+	Globals.player.get_ref().take_hit(1)
+	state_nxt = STATES.WANDER
+	can_hit = false
+	$Timer.start()
 
-func _state_wander( delta ):
+func state_wander( delta ):
 	# check for targets
 	# look for player
-	if _player_line_of_sight():
+	if player_line_of_sight():
 		# player is in sight, set it as target and go hunt
 		target = Globals.player
 		state_nxt = STATES.TARGET
 	else:
 		control( delta )
 
-func _state_target( delta ):
+func state_target( delta ):
 	# if target is gone
 	if target == null or target.get_ref() == null:
 		# the target is gone
 		state_nxt = STATES.WANDER
 		return
 	if target == Globals.player:
-		if not _player_line_of_sight():
+		if not player_line_of_sight():
 			state_nxt = STATES.WANDER
 			return
 	var distance_to_target = target.get_ref().global_position - global_position
-	if distance_to_target.length() < 10:
+	if distance_to_target.length() < 50:
 		# reached target
-		print( "REACHED TARGET" )
 		state_nxt = STATES.HIT
 		return
 	# steer torwards target
@@ -82,10 +79,7 @@ func _state_target( delta ):
 	pass
 
 
-
-
-
-func _player_line_of_sight():
+func player_line_of_sight():
 	if Globals.player == null or Globals.player.get_ref() == null:
 		# no player
 		return false
@@ -94,5 +88,9 @@ func _player_line_of_sight():
 			global_position, Globals.player.get_ref().global_position, \
 			[], 1 + 8 )
 	if result.collider == Globals.player.get_ref():
-		return true
+		if global_position.distance_to(Globals.player.get_ref().global_position) < search_distance:
+			return true
 	return false
+
+func _on_Timer_timeout():
+	can_hit = true
