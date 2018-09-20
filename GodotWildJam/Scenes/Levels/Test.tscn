@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Levels/level.gd" type="Script" id=1]
 [ext_resource path="res://Art/Background Assets/TestLevel.png" type="Texture" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Scenes/Characters/Player/Player.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Characters/Police/NightStick/NightStick.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Scenes/Characters/Police/Cop_Rusher/Cop_Rusher.tscn" type="PackedScene" id=6]
+[ext_resource path="res://sounds/Pachacuti Subliminal.wav" type="AudioStream" id=7]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -101,5 +102,16 @@ position = Vector2( 229.922, 493.227 )
 [node name="KinematicBody2D2" parent="." index="5" instance=ExtResource( 6 )]
 
 position = Vector2( 195.494, 623.845 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="6"]
+
+stream = ExtResource( 7 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
 
 

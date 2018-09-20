@@ -3,7 +3,9 @@ extends Node2D
 export var people_count = 30
 export var item_count = 30
 export var police_count = 3
-var gas_guy = preload("res://Scenes/Characters/Police/GasUnits/GasGuy.tscn")
+#var gas_guy = preload("res://Scenes/Characters/Police/GasUnits/GasGuy.tscn")
+var Cop_Rusher = preload("res://Scenes/Characters/Police/Cop_Rusher/Cop_Rusher.tscn")
+
 var rude = preload("res://Scenes/Characters/Rioters/Rude/Rude.tscn")
 var man = preload("res://Scenes/Characters/Rioters/man/man.tscn")
 var woman = preload("res://Scenes/Characters/Rioters/woman/woman.tscn")
@@ -12,6 +14,7 @@ var bottle = preload("res://Scenes/Items/Bottle.tscn")
 
 
 func _ready():
+	$AudioStreamPlayer2D.play()
 	#adding people
 	for i in people_count:
 		var inst = man.instance()
@@ -22,7 +25,7 @@ func _ready():
 		inst.position = Vector2(rand_range(20,1004),rand_range(20,580))
 		add_child(inst)
 	for i in police_count:
-		var inst = gas_guy.instance()
+		var inst = Cop_Rusher.instance()
 		inst.position = Vector2(rand_range(20,1004),rand_range(20,580))
 		add_child(inst)
 #adding stuff is bit different
