@@ -49,8 +49,9 @@ func control(delta):
 	
 	#$Player/AnimatedSprite.play("walk")
 	$Head.look_at(get_global_mouse_position()) 
-	$Body.look_at(get_global_mouse_position())
-	$Body.rotation_degrees += 90
+	#$Body.look_at(get_global_mouse_position())
+	
+	#$Body.rotation_degrees += 90
 	$Head.rotation_degrees += 90
 	var m_speed = speed * 10
 
@@ -66,6 +67,8 @@ func control(delta):
 		$Body.play("idle")
 	else:
 		move_and_slide (velocity,Vector2(0, 0))
+		$Body.look_at( position + velocity )
+		$Body.rotation_degrees += 90
 		$Body.play("walk")
 	velocity = Vector2(0, 0)
 	if Input.is_action_just_pressed("Interact"):

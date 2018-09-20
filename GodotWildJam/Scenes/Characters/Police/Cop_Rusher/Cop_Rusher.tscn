@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/Characters/BaseNPC/NPC.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Characters/Police/Cop_Rusher/Cop_Rusher.gd" type="Script" id=1]
 [ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_0.png" type="Texture" id=2]
 [ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_1.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_2.png" type="Texture" id=4]
@@ -22,7 +22,7 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2
@@ -52,7 +52,7 @@ rotation = 1.56961
 scale = Vector2( 0.180457, 0.17975 )
 frames = SubResource( 1 )
 animation = "walk"
-frame = 1
+frame = 3
 playing = true
 
 [node name="Head" type="Sprite" parent="." index="2"]
