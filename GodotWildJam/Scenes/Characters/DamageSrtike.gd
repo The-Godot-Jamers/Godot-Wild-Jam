@@ -35,4 +35,25 @@ func _physics_process(delta):
 		return
 		
 	for body in overlapping_bodies:
-		if not body.
+		if not body.is_in_group("character"):
+			return
+		if is_owner(body):
+			return
+		body.take_damage(damage)
+		$HitLands.play()
+	set_physics_process(false)
+	
+	
+func is_owner(node):
+	return node.strike_path == get_path()
+	
+func _on_AnimationPlayer_animation_finished ( name ):
+	if name == "attack":
+		_change_state (IDLE)
+		emit_signal ("attack_finished") 
+	
+
+
+
+func _on_Area2DDamageStrike_attack_finished():
+	pass # replace with function body

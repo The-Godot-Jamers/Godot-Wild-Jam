@@ -1,11 +1,12 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scenes/Characters/Police/NightStick/NightStick.gd" type="Script" id=1]
 [ext_resource path="res://Art/Characters and Animations/NightStick/Default_Walk0.png" type="Texture" id=2]
 [ext_resource path="res://Art/Characters and Animations/NightStick/Default_Walk1.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/NightStick/Default_Walk2.png" type="Texture" id=4]
-[ext_resource path="res://Art/Characters and Animations/NightStick/NightStickHEad.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Art/Characters and Animations/NightStick/NightStick_Attack.png" type="Texture" id=5]
+[ext_resource path="res://Art/Characters and Animations/NightStick/NightStickHEad.png" type="Texture" id=6]
+[ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
@@ -15,19 +16,26 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [  ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk",
 "speed": 4.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 5 ) ],
 "loop": true,
-"name": "run",
+"name": "attack",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" groups=[
+"characters",
+]]
 
 input_pickable = false
 collision_layer = 2
@@ -53,7 +61,7 @@ position = Vector2( 0.514139, -0.0151033 )
 rotation = 1.57138
 scale = Vector2( 0.177854, 0.187077 )
 frames = SubResource( 1 )
-animation = "idle"
+animation = "attack"
 playing = true
 
 [node name="Head" type="Sprite" parent="." index="2"]
@@ -61,7 +69,7 @@ playing = true
 position = Vector2( -0.161674, 0.474637 )
 rotation = -1.58016
 scale = Vector2( 0.13342, 0.13342 )
-texture = ExtResource( 5 )
+texture = ExtResource( 6 )
 
 [node name="Look_at" type="Position2D" parent="Head" index="0"]
 
@@ -72,6 +80,6 @@ wait_time = 0.5
 one_shot = true
 autostart = true
 
-[node name="talk" parent="." index="4" instance=ExtResource( 6 )]
+[node name="talk" parent="." index="4" instance=ExtResource( 7 )]
 
 
