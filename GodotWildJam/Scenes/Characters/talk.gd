@@ -14,6 +14,7 @@ func talk(who):
 		$AnimationPlayer.play("talk")
 		can_act = false
 		var influenced = get_overlapping_bodies()
+		who.police_interest += talk_value * 5
 		for i in influenced:
 			if i != who:
 				i.care_about_issue += talk_value
@@ -26,6 +27,7 @@ func yell(who):
 		$AnimationPlayer.play("yell")
 		can_act = false
 		var influenced = get_overlapping_bodies()
+		who.police_interest += yell_value * 5
 		for i in influenced:
 			if i != who:
 				if i.care_about_issue > 70:

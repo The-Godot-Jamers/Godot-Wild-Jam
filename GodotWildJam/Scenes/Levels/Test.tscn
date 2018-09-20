@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Levels/level.gd" type="Script" id=1]
 [ext_resource path="res://Art/Background Assets/TestLevel.png" type="Texture" id=2]
@@ -34,9 +34,9 @@ tracks/0/keys = {
 
 position = Vector2( 0.794434, 0 )
 script = ExtResource( 1 )
-people_count = 10
-item_count = 10
-police_count = 10
+people_count = 100
+item_count = 30
+police_count = 30
 
 [node name="TestLevel" type="Sprite" parent="." index="0"]
 

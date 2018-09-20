@@ -2,7 +2,7 @@ extends "res://Scenes/Characters/BaseNPC/NPC.gd"
 
 #They should have special base behaviors as a class.
 
-var search_distance = 300
+var search_distance
 
 func _ready():
 	care_about_issue = 0
@@ -88,6 +88,7 @@ func player_line_of_sight():
 			global_position, Globals.player.get_ref().global_position, \
 			[], 1 + 8 )
 	if result.collider == Globals.player.get_ref():
+		search_distance = Globals.player.get_ref().police_interest * 10
 		if global_position.distance_to(Globals.player.get_ref().global_position) < search_distance:
 			return true
 	return false

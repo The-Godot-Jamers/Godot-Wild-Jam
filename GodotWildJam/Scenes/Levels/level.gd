@@ -1,8 +1,8 @@
 extends Node2D
 
-export var people_count = 50
+export var people_count = 100 # this is double as men + women
 export var item_count = 30
-export var police_count = 10
+export var police_count = 30
 var gas_guy = preload("res://Scenes/Characters/Police/GasUnits/GasGuy.tscn")
 var police = preload("res://Scenes/Characters/Police/NightStick/NightStick.tscn")
 var rusher = preload("res://Scenes/Characters/Police/Cop_Rusher/Cop_Rusher.tscn")
