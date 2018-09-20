@@ -26,7 +26,7 @@ func _change_state(new_state):
 			set_physics_process(false)
 		ATTACK:
 			set_physics_process(true)
-			animation_player.play("attack")
+			animation_player.play("Hit_Lands")
 	
 	
 func _physics_process(delta):
@@ -35,4 +35,25 @@ func _physics_process(delta):
 		return
 		
 	for body in overlapping_bodies:
-		if not body.
+		if not body.is_in_group("characters"):
+			return
+		if is_owner(body):
+			return
+		body.take_damage(damage)
+		$HitLands.play()
+	set_physics_process(false)
+	
+	
+func is_owner(node):
+	return node.strike_path == get_path()
+	
+func _on_AnimationPlayer_animation_finished ( name ):
+	if name == "attack":
+		_change_state (IDLE)
+		emit_signal ("attack_finished") 
+	
+
+
+
+func _on_Area2DDamageStrike_attack_finished():
+	pass # replace with function body
