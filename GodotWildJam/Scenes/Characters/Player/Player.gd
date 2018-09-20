@@ -112,7 +112,6 @@ func die():
 	alive = false
 	$Body.play("die")
 	$Head.hide()
-	print("1")
 	get_parent().player_dead()
 
 

@@ -5,7 +5,8 @@ extends "res://Scenes/Characters/BaseNPC/NPC.gd"
 var search_distance
 
 func _ready():
-	care_about_issue = 0
+	add_to_group("POLICE")
+	care_about_issue = -100
 	$AnimatedSprite_Body.modulate = Globals.police_colors[randi() % Globals.police_colors.size()]
 	$Head.modulate = Globals.police_colors[randi() % Globals.police_colors.size()]
 

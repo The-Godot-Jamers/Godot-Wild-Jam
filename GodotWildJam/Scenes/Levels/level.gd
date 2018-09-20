@@ -53,7 +53,6 @@ func _process(delta):
 	Globals.police_lvl_set( care_lvl / npc.size() / 20 )
 
 func player_dead():
-	print("2")
 	$AnimationPlayer.play("player_dead")
 
 func _on_AnimationPlayer_animation_finished(anim_name):

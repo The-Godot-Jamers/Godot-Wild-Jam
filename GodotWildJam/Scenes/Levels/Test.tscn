@@ -30,7 +30,7 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 1 ), Color( 0, 0, 0, 1 ) ]
 }
 
-[node name="test_lvl" type="Node2D" index="0"]
+[node name="test_lvl" type="Node2D"]
 
 position = Vector2( 0.794434, 0 )
 script = ExtResource( 1 )

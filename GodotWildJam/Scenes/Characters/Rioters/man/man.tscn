@@ -7,7 +7,7 @@
 [ext_resource path="res://Art/Characters and Animations/Rude-Pixels/head-01.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=6]
 
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
 "frames": [ ExtResource( 2 ) ],
@@ -51,7 +51,7 @@ health = 30
 use_parent_material = true
 rotation = -1.57065
 scale = Vector2( 0.13648, 0.144122 )
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "idle"
 playing = true
 _sections_unfolded = [ "Material", "Transform", "Z Index" ]
@@ -76,8 +76,6 @@ one_shot = true
 autostart = true
 
 [node name="talk" parent="." index="3" instance=ExtResource( 6 )]
-
-visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 

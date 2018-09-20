@@ -7,8 +7,6 @@
 [ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=6]
 
-
-
 [sub_resource type="SpriteFrames" id=1]
 
 animations = [ {
@@ -17,19 +15,19 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [  ],
-"loop": true,
-"name": "run",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk",
 "speed": 4.0
+}, {
+"frames": [  ],
+"loop": true,
+"name": "run",
+"speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" index="0"]
 
 input_pickable = false
 collision_layer = 2

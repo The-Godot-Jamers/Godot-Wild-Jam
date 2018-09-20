@@ -77,8 +77,6 @@ autostart = true
 
 [node name="talk" parent="." index="3" instance=ExtResource( 6 )]
 
-visible = false
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
 position = Vector2( 2.21669, -0.170517 )
