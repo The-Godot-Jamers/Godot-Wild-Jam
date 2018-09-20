@@ -1,10 +1,10 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Characters/BaseNPC/NPC.gd" type="Script" id=1]
-[ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_0.png" type="Texture" id=2]
-[ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_1.png" type="Texture" id=3]
-[ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_2.png" type="Texture" id=4]
-[ext_resource path="res://Art/Characters and Animations/Cops_Rusher/Cop_Rusher_Head.png" type="Texture" id=5]
+[ext_resource path="res://Art/Characters and Animations/NightStick/Default_Walk0.png" type="Texture" id=2]
+[ext_resource path="res://Art/Characters and Animations/NightStick/Default_Walk1.png" type="Texture" id=3]
+[ext_resource path="res://Art/Characters and Animations/NightStick/Default_Walk2.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/NightStick/NightStickHEad.png" type="Texture" id=5]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
@@ -15,10 +15,15 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ), ExtResource( 2 ) ],
+"frames": [  ],
+"loop": true,
+"name": "run",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ), ExtResource( 3 ), ExtResource( 2 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk",
-"speed": 5.0
+"speed": 4.0
 } ]
 _sections_unfolded = [ "Resource" ]
 
@@ -30,9 +35,6 @@ collision_mask = 11
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision" ]
-__meta__ = {
-"_edit_horizontal_guides_": [ -16.6429, 21.3958 ]
-}
 Bullet = null
 speed = 50
 rotation_speed = null
@@ -40,26 +42,25 @@ health = 30
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
-position = Vector2( 1.73959, -0.0542929 )
-scale = Vector2( 0.527234, 0.527234 )
+position = Vector2( 1.13155, -1.25705 )
+scale = Vector2( 0.626152, 0.707375 )
 build_mode = 0
-polygon = PoolVector2Array( 2.26949, 9.16503, 20.2114, 12.7249, 21.2081, 8.73785, 20.069, -14.1879, -1.4328, -10.0584, -7.84061, -10.2008, -11.8277, -2.65381, -8.1254, 6.74431, -4.42311, 9.44983 )
+polygon = PoolVector2Array( -1.06589, 19.5703, 9.69737, 19.6382, 11.8466, -2.56541, -1.59293, -14.6873, -14.5054, -0.193726, -12.9243, 11.1376 )
 
 [node name="AnimatedSprite_Body" type="AnimatedSprite" parent="." index="1"]
 
-position = Vector2( 0.217056, 1.09391 )
-rotation = 1.56961
-scale = Vector2( 0.180457, 0.17975 )
+position = Vector2( 0.514139, -0.0151033 )
+rotation = 1.57138
+scale = Vector2( 0.177854, 0.187077 )
 frames = SubResource( 1 )
-animation = "walk"
-frame = 2
+animation = "idle"
 playing = true
 
 [node name="Head" type="Sprite" parent="." index="2"]
 
-position = Vector2( 0.126299, -0.113303 )
-rotation = -1.58201
-scale = Vector2( 0.1124, 0.1124 )
+position = Vector2( -0.161674, 0.474637 )
+rotation = -1.58016
+scale = Vector2( 0.13342, 0.13342 )
 texture = ExtResource( 5 )
 
 [node name="Look_at" type="Position2D" parent="Head" index="0"]

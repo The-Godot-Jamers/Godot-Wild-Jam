@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scenes/Levels/level.gd" type="Script" id=1]
 [ext_resource path="res://Art/Background Assets/TestLevel.png" type="Texture" id=2]
 [ext_resource path="res://Art/Background Assets/wall.png" type="Texture" id=3]
 [ext_resource path="res://Scenes/Characters/Player/Player.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Characters/Police/NightStick/NightStick.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Characters/Police/Cop_Rusher/Cop_Rusher.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 
@@ -12,6 +14,7 @@ extents = Vector2( 254, 170 )
 
 [node name="test_lvl" type="Node2D" index="0"]
 
+position = Vector2( 0.794434, 0 )
 script = ExtResource( 1 )
 people_count = 10
 item_count = 10
@@ -90,5 +93,13 @@ texture = ExtResource( 3 )
 [node name="Player" parent="." index="3" instance=ExtResource( 4 )]
 
 position = Vector2( 72.2729, 530.261 )
+
+[node name="KinematicBody2D" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 229.922, 493.227 )
+
+[node name="KinematicBody2D2" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 195.494, 623.845 )
 
 

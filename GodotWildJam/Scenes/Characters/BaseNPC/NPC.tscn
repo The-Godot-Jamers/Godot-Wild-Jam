@@ -38,7 +38,7 @@ _sections_unfolded = [ "Collision" ]
 Bullet = null
 speed = 50
 rotation_speed = null
-health = null
+health = 30
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
 
