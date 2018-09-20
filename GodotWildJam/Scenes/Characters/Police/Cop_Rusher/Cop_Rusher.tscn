@@ -22,7 +22,9 @@ animations = [ {
 } ]
 _sections_unfolded = [ "Resource" ]
 
-[node name="KinematicBody2D" type="KinematicBody2D"]
+[node name="KinematicBody2D" type="KinematicBody2D" index="0" groups=[
+"characters",
+]]
 
 input_pickable = false
 collision_layer = 2

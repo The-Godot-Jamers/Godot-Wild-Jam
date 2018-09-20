@@ -61,6 +61,7 @@ radius = 10.0
 height = 20.0
 
 [node name="Player" type="KinematicBody2D" index="0" groups=[
+"characters",
 "PLAYER",
 ]]
 
