@@ -51,8 +51,7 @@ position = Vector2( 0.217056, 1.09391 )
 rotation = 1.56961
 scale = Vector2( 0.180457, 0.17975 )
 frames = SubResource( 1 )
-animation = "walk"
-frame = 3
+animation = "idle"
 playing = true
 
 [node name="Head" type="Sprite" parent="." index="2"]

@@ -74,11 +74,14 @@ func _state_target( delta ):
 	var distance_to_target = target.get_ref().global_position - global_position
 	if distance_to_target.length() < 10:
 		# reached target
+		print( "REACHED TARGET" )
 		state_nxt = STATES.HIT
 		return
 	# steer torwards target
 	steering( target.get_ref().global_position )
 	pass
+
+
 
 
 
