@@ -58,6 +58,9 @@ func _physics_process(delta):
 		return
 	
 	
+	# look towards where we're going
+	look_at( position + velocity )
+	
 	velocity = move_and_slide(velocity)
 	
 	state_cur = state_nxt
@@ -104,10 +107,15 @@ func _state_wander( delta ):
 		control( delta )
 
 func _state_target( delta ):
+	# if target is gone
 	if target == null or target.get_ref() == null:
 		# the target is gone
 		state_nxt = STATES.WANDER
 		return
+	if target == Globals.player:
+		if not _player_line_of_sight():
+			state_nxt = STATES.WANDER
+			return
 	var distance_to_target = target.get_ref().global_position - global_position
 	if distance_to_target.length() < 10:
 		# reached target
