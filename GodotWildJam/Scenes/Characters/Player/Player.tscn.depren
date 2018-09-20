@@ -1,7 +1,7 @@
 [gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Characters/Rioters/talk.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Characters/DamageSrtike.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_3.png" type="Texture" id=4]
 [ext_resource path="res://Art/Characters and Animations/Main Character/Walk/boy-walk-1.png" type="Texture" id=5]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/Punch_Land.png" type="Texture" id=10]
 [ext_resource path="res://Art/Characters and Animations/Main Character/Head/MC_Head.png" type="Texture" id=11]
 [ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=12]
+
 
 [sub_resource type="SpriteFrames" id=1]
 

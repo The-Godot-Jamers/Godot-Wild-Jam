@@ -5,7 +5,7 @@
 [ext_resource path="res://Art/Characters and Animations/Test/Walk1.png" type="Texture" id=3]
 [ext_resource path="res://Art/Characters and Animations/Test/Walk3.png" type="Texture" id=4]
 [ext_resource path="res://Art/Characters and Animations/Test/Test_head.png" type="Texture" id=5]
-[ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Characters/Rioters/talk.tscn" type="PackedScene" id=6]
 
 [sub_resource type="SpriteFrames" id=1]
 

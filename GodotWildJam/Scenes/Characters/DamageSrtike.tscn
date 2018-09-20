@@ -4,11 +4,6 @@
 [ext_resource path="res://sounds/punch.wav" type="AudioStream" id=2]
 [ext_resource path="res://Art/Characters and Animations/HitLands.png" type="Texture" id=3]
 
-[sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 10.0
-
 [sub_resource type="Animation" id=2]
 
 resource_name = "Hit_Lands"
@@ -40,6 +35,11 @@ tracks/1/keys = {
 "values": [ true, true ]
 }
 
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
 [node name="Area2DDamageStrike" type="Area2D" groups=[
 "Stirke",
 ]]
@@ -49,21 +49,33 @@ gravity_vec = Vector2( 0, 1 )
 gravity = 98.0
 linear_damp = 0.1
 angular_damp = 1.0
+monitorable = false
 audio_bus_override = false
 audio_bus_name = "Master"
 script = ExtResource( 1 )
 damage = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="0"]
+
+root_node = NodePath("..")
+autoplay = ""
+playback_process_mode = 1
+playback_default_blend_time = 0.0
+playback_speed = 1.0
+anims/Hit_Lands = SubResource( 2 )
+blend_times = [  ]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
 position = Vector2( 0.0609112, 0.108417 )
-scale = Vector2( 0.452417, 0.452417 )
+scale = Vector2( 2, 2 )
 shape = SubResource( 1 )
+_sections_unfolded = [ "Transform" ]
 __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="HitLands" type="AudioStreamPlayer2D" parent="." index="1"]
+[node name="HitLands" type="AudioStreamPlayer2D" parent="." index="2"]
 
 stream = ExtResource( 2 )
 volume_db = 0.0
@@ -74,20 +86,9 @@ attenuation = 1.0
 bus = "Master"
 area_mask = 1
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
-
-root_node = NodePath("..")
-autoplay = ""
-playback_process_mode = 1
-playback_default_blend_time = 0.0
-playback_speed = 1.0
-anims/Hit_Lands = SubResource( 2 )
-blend_times = [  ]
-
 [node name="HitLands2" type="Sprite" parent="." index="3"]
 
 position = Vector2( -0.00925636, 0.215878 )
-scale = Vector2( 0.240912, 0.240912 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Animation", "Transform", "Visibility" ]
 

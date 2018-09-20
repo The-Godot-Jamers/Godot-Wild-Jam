@@ -26,7 +26,7 @@ func _change_state(new_state):
 			set_physics_process(false)
 		ATTACK:
 			set_physics_process(true)
-			animation_player.play("attack")
+			animation_player.play("Hit_Lands")
 	
 	
 func _physics_process(delta):
@@ -35,7 +35,7 @@ func _physics_process(delta):
 		return
 		
 	for body in overlapping_bodies:
-		if not body.is_in_group("character"):
+		if not body.is_in_group("characters"):
 			return
 		if is_owner(body):
 			return

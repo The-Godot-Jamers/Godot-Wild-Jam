@@ -46,11 +46,11 @@ func _physics_process(delta):
 	control(delta)
 
 func control(delta):
-	
+
 	#$Player/AnimatedSprite.play("walk")
-	$Head.look_at(get_global_mouse_position()) 
+	$Head.look_at(get_global_mouse_position())
 	#$Body.look_at(get_global_mouse_position())
-	
+
 	#$Body.rotation_degrees += 90
 	$Head.rotation_degrees += 90
 	var m_speed = speed * 10
@@ -62,15 +62,14 @@ func control(delta):
 	if Input.is_action_pressed('Up'):
 		velocity += Vector2(0, -m_speed)
 	if Input.is_action_pressed('Down'):
-		velocity += Vector2(0, m_speed) 
-	if velocity ==  Vector2(0, 0): 
+		velocity += Vector2(0, m_speed)
+	if velocity ==  Vector2(0, 0):
 		$Body.play("idle")
 	else:
 		if Input.is_action_pressed('punch'): #hope this works_Zon
 			$Body.play ("punch")
-
-			
-		else: 
+		else:
+			$Area2DDamageStrike.hide()
 			move_and_slide (velocity,Vector2(0, 0))
 			$Body.look_at( position + velocity )
 			$Body.rotation_degrees += 90
@@ -89,7 +88,7 @@ func control(delta):
 					inventory.append(i)
 					i.hide()
 					i.pickable = false
-					
+
 	if Input.is_action_just_pressed("attack_push_throw"):
 		if UI.inventory_selected > -1 && UI.inventory_selected < inventory.size():
 			throw()

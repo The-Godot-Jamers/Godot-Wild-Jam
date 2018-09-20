@@ -6,7 +6,7 @@
 [ext_resource path="res://Art/Characters and Animations/NightStick/Default_Walk2.png" type="Texture" id=4]
 [ext_resource path="res://Art/Characters and Animations/NightStick/NightStick_Attack.png" type="Texture" id=5]
 [ext_resource path="res://Art/Characters and Animations/NightStick/NightStickHEad.png" type="Texture" id=6]
-[ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Characters/Rioters/talk.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 
