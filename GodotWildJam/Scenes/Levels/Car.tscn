@@ -9,6 +9,8 @@ extents = Vector2( 10, 10.9219 )
 
 [node name="Car" type="KinematicBody2D"]
 
+position = Vector2( 44.0326, 44.0326 )
+scale = Vector2( 2.37602, 2.37602 )
 input_pickable = false
 collision_layer = 1
 collision_mask = 1
@@ -16,13 +18,13 @@ collision/safe_margin = 0.08
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
 
-position = Vector2( 0.0515823, 7.26229 )
+position = Vector2( -19.3651, -16.8243 )
 scale = Vector2( 2.42947, 3.40939 )
 shape = SubResource( 1 )
 
 [node name="car-2" type="Sprite" parent="." index="1"]
 
-position = Vector2( -1.41624, 6.03544 )
+position = Vector2( -22.0567, -14.9043 )
 scale = Vector2( 0.348944, 0.348944 )
 texture = ExtResource( 1 )
 
