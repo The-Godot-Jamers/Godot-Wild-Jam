@@ -1,23 +1,22 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Characters/DamageSrtike.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_3.png" type="Texture" id=4]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/boy-walk-1.png" type="Texture" id=5]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_2.png" type="Texture" id=6]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Behind.png" type="Texture" id=7]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Front.png" type="Texture" id=8]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/Punch_Wind.png" type="Texture" id=9]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/Punch_Land.png" type="Texture" id=10]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Head/MC_Head.png" type="Texture" id=11]
-[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_3.png" type="Texture" id=3]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/Punch_Wind.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/Punch_Land.png" type="Texture" id=5]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/boy-walk-1.png" type="Texture" id=6]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_2.png" type="Texture" id=7]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Behind.png" type="Texture" id=8]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Front.png" type="Texture" id=9]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Head/MC_Head.png" type="Texture" id=10]
+[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=11]
 
 [sub_resource type="SpriteFrames" id=1]
 
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 4 ) ],
+"frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -27,24 +26,24 @@ animations = [ {
 "name": "run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 5 ), ExtResource( 4 ), ExtResource( 6 ), ExtResource( 4 ) ],
+"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"loop": true,
+"name": "punch",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 7 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "die2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "die",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 9 ), ExtResource( 10 ) ],
-"loop": true,
-"name": "punch",
 "speed": 5.0
 } ]
 _sections_unfolded = [ "Resource" ]
@@ -74,7 +73,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="Player" type="KinematicBody2D" groups=[
+[node name="Player" type="KinematicBody2D" index="0" groups=[
 "characters",
 "PLAYER",
 ]]
@@ -97,15 +96,7 @@ position = Vector2( -8.79183, -16.5738 )
 rotation = -1.5708
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Area2DDamageStrike" parent="." index="1" instance=ExtResource( 3 )]
-
-visible = false
-position = Vector2( 20.8626, 7.68709 )
-rotation = 1.5708
-scale = Vector2( 0.172224, 0.172224 )
-_sections_unfolded = [ "Visibility" ]
-
-[node name="Body" type="AnimatedSprite" parent="." index="2"]
+[node name="Body" type="AnimatedSprite" parent="." index="1"]
 
 modulate = Color( 0.901961, 0.282353, 0.180392, 1 )
 position = Vector2( -0.0338719, 0.0739138 )
@@ -120,20 +111,20 @@ _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 rotation = 0.00203246
 
-[node name="Head" type="Sprite" parent="." index="3"]
+[node name="Head" type="Sprite" parent="." index="2"]
 
 material = SubResource( 3 )
 position = Vector2( 0.396189, 0.320516 )
 rotation = 1.5708
 scale = Vector2( 0.131311, 0.131311 )
-texture = ExtResource( 11 )
+texture = ExtResource( 10 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility" ]
 
-[node name="PlayerCamera" parent="." index="4" instance=ExtResource( 12 )]
+[node name="PlayerCamera" parent="." index="3" instance=ExtResource( 11 )]
 
 position = Vector2( -0.000117148, -0.142395 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="5"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
 
 position = Vector2( -4.86192, 1.62508 )
 shape = SubResource( 4 )
