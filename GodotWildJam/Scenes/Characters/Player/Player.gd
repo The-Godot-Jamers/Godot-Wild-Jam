@@ -69,7 +69,7 @@ func control(delta):
 		if Input.is_action_pressed('punch'): #hope this works_Zon
 			$Body.play ("punch")
 		else:
-			$Area2DDamageStrike.hide()
+			#$Area2DDamageStrike.hide()
 			move_and_slide (velocity,Vector2(0, 0))
 			$Body.look_at( position + velocity )
 			$Body.rotation_degrees += 90
