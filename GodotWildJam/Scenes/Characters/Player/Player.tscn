@@ -1,22 +1,28 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Scenes/Characters/Player/Player.gd" type="Script" id=1]
-[ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_3.png" type="Texture" id=3]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/Punch_Wind.png" type="Texture" id=4]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/Punch_Land.png" type="Texture" id=5]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/boy-walk-1.png" type="Texture" id=6]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_2.png" type="Texture" id=7]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Behind.png" type="Texture" id=8]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Front.png" type="Texture" id=9]
-[ext_resource path="res://Art/Characters and Animations/Main Character/Head/MC_Head.png" type="Texture" id=10]
-[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=11]
+[ext_resource path="res://sounds/Crowds/VideoGameCrowdNoises10.wav" type="AudioStream" id=2]
+[ext_resource path="res://Scenes/Characters/talk.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_3.png" type="Texture" id=4]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/Punch_Wind.png" type="Texture" id=5]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Attacks/Punch_Land.png" type="Texture" id=6]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/boy-walk-1.png" type="Texture" id=7]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Walk/MC_Walk_2.png" type="Texture" id=8]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Behind.png" type="Texture" id=9]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Die_Knockdown/Default_Pushed_Front.png" type="Texture" id=10]
+[ext_resource path="res://Art/Characters and Animations/Main Character/Head/MC_Head.png" type="Texture" id=11]
+[ext_resource path="res://Scenes/camera/PlayerCamera.tscn" type="PackedScene" id=12]
+
+[sub_resource type="RectangleShape2D" id=5]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10 )
 
 [sub_resource type="SpriteFrames" id=1]
 
 resource_local_to_scene = true
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
+"frames": [ ExtResource( 4 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
@@ -26,22 +32,22 @@ animations = [ {
 "name": "run",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 4 ), ExtResource( 5 ) ],
+"frames": [ ExtResource( 5 ), ExtResource( 6 ) ],
 "loop": true,
 "name": "punch",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 7 ), ExtResource( 3 ) ],
+"frames": [ ExtResource( 7 ), ExtResource( 4 ), ExtResource( 8 ), ExtResource( 4 ) ],
 "loop": true,
 "name": "walk",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 8 ) ],
+"frames": [ ExtResource( 9 ) ],
 "loop": true,
 "name": "die2",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 9 ) ],
+"frames": [ ExtResource( 10 ) ],
 "loop": true,
 "name": "die",
 "speed": 5.0
@@ -73,7 +79,7 @@ custom_solver_bias = 0.0
 radius = 10.0
 height = 20.0
 
-[node name="Player" type="KinematicBody2D" index="0" groups=[
+[node name="Player" type="KinematicBody2D" groups=[
 "characters",
 "PLAYER",
 ]]
@@ -90,43 +96,73 @@ speed = 10
 rotation_speed = null
 health = 100
 
-[node name="talk" parent="." index="0" instance=ExtResource( 2 )]
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="0"]
 
-position = Vector2( -8.79183, -16.5738 )
+position = Vector2( -0.91412, 0.074638 )
+rotation = 1.5708
+scale = Vector2( 0.172224, 0.172224 )
+stream = ExtResource( 2 )
+volume_db = 0.0
+pitch_scale = 1.0
+autoplay = false
+max_distance = 2000.0
+attenuation = 1.0
+bus = "Master"
+area_mask = 1
+
+[node name="FollowTheLeader" type="KinematicBody2D" parent="." index="1"]
+
+position = Vector2( 72.959, 3.07562 )
+rotation = -1.5708
+scale = Vector2( 1, 1 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FollowTheLeader" index="0"]
+
+position = Vector2( 2.29542, -36.3632 )
+scale = Vector2( 2.94457, 2.94457 )
+shape = SubResource( 5 )
+
+[node name="talk" parent="." index="2" instance=ExtResource( 3 )]
+
+position = Vector2( 0.209942, -1.05163 )
 rotation = -1.5708
 _sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Body" type="AnimatedSprite" parent="." index="1"]
+[node name="Body" type="AnimatedSprite" parent="." index="3"]
 
 modulate = Color( 0.901961, 0.282353, 0.180392, 1 )
-position = Vector2( -0.0338719, 0.0739138 )
+position = Vector2( -0.91412, 0.074638 )
 rotation = 1.5708
 scale = Vector2( 0.172224, 0.172224 )
 frames = SubResource( 1 )
-animation = "punch"
-frame = 1
+animation = "idle"
 _sections_unfolded = [ "Material", "Transform", "Visibility", "Z Index" ]
 
 [node name="Look_at" type="Position2D" parent="Body" index="0"]
 
 rotation = 0.00203246
 
-[node name="Head" type="Sprite" parent="." index="2"]
+[node name="Head" type="Sprite" parent="." index="4"]
 
 material = SubResource( 3 )
 position = Vector2( 0.396189, 0.320516 )
 rotation = 1.5708
 scale = Vector2( 0.131311, 0.131311 )
-texture = ExtResource( 10 )
+texture = ExtResource( 11 )
 _sections_unfolded = [ "Animation", "Material", "Offset", "Pause", "Region", "Transform", "Visibility" ]
 
-[node name="PlayerCamera" parent="." index="3" instance=ExtResource( 11 )]
+[node name="PlayerCamera" parent="." index="5" instance=ExtResource( 12 )]
 
 position = Vector2( -0.000117148, -0.142395 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="4"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="6"]
 
-position = Vector2( -4.86192, 1.62508 )
+position = Vector2( -0.566423, 0.884353 )
+scale = Vector2( 0.449941, 0.449941 )
 shape = SubResource( 4 )
 
 

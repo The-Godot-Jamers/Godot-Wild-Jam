@@ -68,6 +68,7 @@ func control(delta):
 	else:
 		if Input.is_action_pressed('punch'): #hope this works_Zon
 			$Body.play ("punch")
+			$AudioStreamPlayer2D.play()
 		else:
 			#$Area2DDamageStrike.hide()
 			move_and_slide (velocity,Vector2(0, 0))
