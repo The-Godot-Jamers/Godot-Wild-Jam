@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Art/Background Assets/Background-Pixel-tiles/car-3.png" type="Texture" id=1]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+custom_solver_bias = 0.0
+extents = Vector2( 10, 10.9219 )
+
+[node name="Car" type="KinematicBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+collision/safe_margin = 0.08
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+
+position = Vector2( 0.0515823, 7.26229 )
+scale = Vector2( 2.42947, 3.40939 )
+shape = SubResource( 1 )
+
+[node name="car-3" type="Sprite" parent="." index="1"]
+
+position = Vector2( 2.27675, 8.81055 )
+rotation = 3.14159
+scale = Vector2( 0.358834, 0.358834 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform", "Z Index" ]
+
+
