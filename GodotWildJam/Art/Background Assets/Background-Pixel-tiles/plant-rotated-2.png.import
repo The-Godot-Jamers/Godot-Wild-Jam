@@ -1,0 +1,29 @@
+[remap]
+
+importer="texture"
+type="StreamTexture"
+path="res://.import/plant-rotated-2.png-eea9e8735675e228e9f1c43542c2554b.stex"
+
+[deps]
+
+source_file="res://Art/Background Assets/Background-Pixel-tiles/plant-rotated-2.png"
+dest_files=[ "res://.import/plant-rotated-2.png-eea9e8735675e228e9f1c43542c2554b.stex" ]
+
+[params]
+
+compress/mode=0
+compress/lossy_quality=0.7
+compress/hdr_mode=0
+compress/normal_map=0
+flags/repeat=0
+flags/filter=true
+flags/mipmaps=false
+flags/anisotropic=false
+flags/srgb=2
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/HDR_as_SRGB=false
+stream=false
+size_limit=0
+detect_3d=true
+svg/scale=1.0
